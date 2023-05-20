@@ -1,0 +1,1 @@
+yarn sequelize migration:generate --name=o-que-a-migration-ira-executar
