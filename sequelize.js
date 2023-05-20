@@ -1,8 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
-  username: 'postgres',
-  password: 'suasenha',
-  database: 'api-portaria',
-  host: '127.0.0.1',
+  username: process.env.USERNAME_POSTGRES,
+  password: process.env.SENHA_POSTGRES,
+  database: process.env.NOME_DATABASE,
+  host: process.env.HOST,
   dialect: 'postgres',
-  port: '5432'
+  port: Number(process.env.PORT_POSTGRES)
 }
