@@ -3,9 +3,10 @@ import routes from './routes'
 
 const app = express()
 app.use(routes)
+require('dotenv').config()
 
-const PORT = 3000
+const PORTA = Number(process.env.PORTA) || 3000
 
-app.listen(PORT, () => {
-  console.log(`Server rodando em http://localhost:${PORT}`)
+app.listen(PORTA, () => {
+  console.log(`Server rodando em http://localhost:${PORTA}`)
 })
