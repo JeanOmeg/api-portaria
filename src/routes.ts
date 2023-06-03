@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { listarTodosUsuario } from './db/controllers/UsuarioController'
+import { listarTodosUsuario } from './controllers/UsuarioController'
 
 const routes = Router()
 
