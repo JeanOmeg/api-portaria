@@ -1,6 +1,6 @@
 import { Model, DataTypes, QueryTypes } from 'sequelize'
 import { sequelize } from '../config/database'
-import { IUsuario } from '../../interfaces/IUsuario'
+import { IUsuario } from '../interfaces/IUsuario'
 
 class UsuarioModel extends Model {
   static listarPorId(id: number): Promise<IUsuario[]> {

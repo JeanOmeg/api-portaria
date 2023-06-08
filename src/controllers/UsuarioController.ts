@@ -1,4 +1,4 @@
-import UsuarioModel from '../db/models/UsuarioModel'
+import UsuarioModel from '../../database/models/UsuarioModel'
 
 export const listarTodosUsuario = async (req: any, res: any) => {
   // Descomente o código para criar um usuario de teste e visualizar o retorno
