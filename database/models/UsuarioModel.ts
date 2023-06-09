@@ -54,11 +54,12 @@ export class UsuarioQuery {
     return UsuarioSchema
   }
 
-  async listarPorId(id: number): Promise<IUsuario[] | null> {
+  async listarPorId(id: number): Promise<IUsuario[]> {
     return (await UsuarioSchema.findAll({
       where: {
         id: id
-      }
+      },
+      raw: true
     })) as unknown as IUsuario[]
   }
 }
