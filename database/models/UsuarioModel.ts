@@ -1,18 +1,11 @@
-import { Model, DataTypes, QueryTypes } from 'sequelize'
+import { DataTypes, Model } from 'sequelize'
 import { sequelize } from '../config/database'
 import { IUsuario } from '../interfaces/IUsuario'
 
-class UsuarioModel extends Model {
-  static listarPorId(id: number): Promise<IUsuario[]> {
-    return sequelize.query<IUsuario>('SELECT * FROM usuario WHERE id = :id', {
-      type: QueryTypes.SELECT,
-      replacements: { id },
-      benchmark: true
-    })
-  }
-}
+const tabela = 'usuario'
 
-UsuarioModel.init(
+export const UsuarioSchema = sequelize.define(
+  tabela,
   {
     id: {
       type: DataTypes.INTEGER,
@@ -51,10 +44,21 @@ UsuarioModel.init(
     }
   },
   {
-    tableName: 'usuario',
     timestamps: false,
-    sequelize
+    freezeTableName: true
   }
 )
 
-export default UsuarioModel
+export class UsuarioQuery {
+  schema() {
+    return UsuarioSchema
+  }
+
+  async listarPorId(id: number): Promise<IUsuario[] | null> {
+    return (await UsuarioSchema.findAll({
+      where: {
+        id: id
+      }
+    })) as unknown as IUsuario[]
+  }
+}

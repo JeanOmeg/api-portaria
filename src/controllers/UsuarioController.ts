@@ -1,19 +1,9 @@
-import UsuarioModel from '../../database/models/UsuarioModel'
+import { UsuarioQuery } from '../../database/models/UsuarioModel'
 
-export const listarTodosUsuario = async (req: any, res: any) => {
-  // Descomente o código para criar um usuario de teste e visualizar o retorno
+const usuario_query: UsuarioQuery = new UsuarioQuery()
 
-  // await UsuarioModel.create({
-  //   nome: 'Jean Fernandes',
-  //   email: 'jean@email.com',
-  //   telefone: '9999999999',
-  //   endereco: 'rua fulano de tal 2023',
-  //   admin: true,
-  //   data_criacao: Date.now(),
-  //   data_edicao: Date.now()
-  // })
-
-  const resultado = await UsuarioModel.listarPorId(1)
+export const listarTodosUsuario = async (_req: any, res: any) => {
+  const resultado = await usuario_query.listarPorId(1)
 
   return res.send(resultado)
 }
