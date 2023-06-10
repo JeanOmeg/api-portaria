@@ -1,10 +1,10 @@
-import { DataTypes, Model } from 'sequelize'
-import { sequelize } from '../config/database'
+import { DataTypes } from 'sequelize'
+import { db_connection } from '../config/database'
 import { IUsuario } from '../interfaces/IUsuario'
 
 const tabela = 'usuario'
 
-export const UsuarioSchema = sequelize.define(
+export const UsuarioSchema = db_connection.define(
   tabela,
   {
     id: {
@@ -19,7 +19,8 @@ export const UsuarioSchema = sequelize.define(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     telefone: {
       type: DataTypes.STRING,

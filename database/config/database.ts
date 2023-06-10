@@ -3,11 +3,11 @@ import { Sequelize } from 'sequelize-typescript'
 
 require('dotenv').config()
 
-export const sequelize = new Sequelize({
-  username: process.env.USERNAME_POSTGRES,
-  password: process.env.SENHA_POSTGRES,
-  database: process.env.NOME_DATABASE,
-  host: process.env.HOST,
-  dialect: process.env.DIALECT as Dialect,
-  port: Number(process.env.PORT_POSTGRES)
+export const db_connection = new Sequelize({
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  dialect: process.env.DB_DIALECT as Dialect,
+  port: Number(process.env.DB_PORT)
 })
