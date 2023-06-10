@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize'
-import { db_connection } from '../config/database'
-import { IUsuario } from '../interfaces/IUsuario'
+import { db_connection } from '../../config/database'
+import { IUsuario } from '../../interfaces/usuario/IUsuario'
 
 const tabela = 'usuario'
 
-export const UsuarioSchema = db_connection.define(
+export const UsuarioSchema = db_connection.define<any, IUsuario>(
   tabela,
   {
     id: {
@@ -55,12 +55,39 @@ export class UsuarioQuery {
     return UsuarioSchema
   }
 
+  async criarUsuario(dados_criação: IUsuario): Promise<IUsuario[]> {
+    return await UsuarioSchema.create({
+      nome: dados_criação.nome,
+      email: dados_criação.email,
+      telefone: dados_criação.telefone,
+      endereco: dados_criação.endereco,
+      data_criacao: Date.now(),
+      data_edicao: Date.now()
+    })
+  }
+
   async listarPorId(id: number): Promise<IUsuario[]> {
-    return (await UsuarioSchema.findAll({
+    return await UsuarioSchema.findAll({
       where: {
         id: id
       },
       raw: true
-    })) as unknown as IUsuario[]
+    })
+  }
+
+  async listarTodos(): Promise<IUsuario[]> {
+    return await UsuarioSchema.findAll({
+      raw: true
+    })
+  }
+
+  async listarNomeUsuarioPorId(id: number): Promise<string> {
+    return await UsuarioSchema.findOne({
+      where: {
+        id: id
+      },
+      attributes: ['nome'],
+      raw: true
+    })
   }
 }
