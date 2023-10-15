@@ -5,7 +5,7 @@ import { usuarioListarTodosService } from '../../services/usuario/usuario-listar
 
 const usuario_query: UsuarioQuery = new UsuarioQuery()
 
-export async function listarTodosUsuarios(req: any, res: any): Promise<IUsuario[]> {
+export async function listarTodosUsuarios(_req: any, res: any): Promise<IUsuario[]> {
   const resultado = await usuarioListarTodosService(usuario_query)
 
   return res.send(resultado)
