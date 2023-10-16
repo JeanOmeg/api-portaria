@@ -19,9 +19,14 @@ module.exports = {
         allowNull: false,
         unique: true
       },
-      telefone: {
+      senha: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      telefone: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       endereco: {
         type: Sequelize.STRING,
@@ -38,7 +43,7 @@ module.exports = {
       },
       data_edicao: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: true
       }
     })
   },

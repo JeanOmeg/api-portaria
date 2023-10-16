@@ -22,9 +22,14 @@ export const UsuarioSchema = db_connection.define<any, IUsuario>(
       allowNull: false,
       unique: true
     },
-    telefone: {
+    senha: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    telefone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
     endereco: {
       type: DataTypes.STRING,
@@ -41,7 +46,7 @@ export const UsuarioSchema = db_connection.define<any, IUsuario>(
     },
     data_edicao: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     }
   },
   {
@@ -51,22 +56,22 @@ export const UsuarioSchema = db_connection.define<any, IUsuario>(
 )
 
 export class UsuarioQuery {
-  schema() {
+  schema () {
     return UsuarioSchema
   }
 
-  async criarUsuario(dados_criação: IUsuario): Promise<IUsuario[]> {
+  async criarUsuario (dados_criação: IUsuario): Promise<IUsuario[]> {
     return await UsuarioSchema.create({
       nome: dados_criação.nome,
       email: dados_criação.email,
+      senha: dados_criação.senha,
       telefone: dados_criação.telefone,
       endereco: dados_criação.endereco,
-      data_criacao: Date.now(),
-      data_edicao: Date.now()
+      data_criacao: Date.now()
     })
   }
 
-  async listarPorId(id: number): Promise<IUsuario[]> {
+  async listarPorId (id: number): Promise<IUsuario[]> {
     return await UsuarioSchema.findAll({
       where: {
         id: id
@@ -75,13 +80,13 @@ export class UsuarioQuery {
     })
   }
 
-  async listarTodos(): Promise<IUsuario[]> {
+  async listarTodos (): Promise<IUsuario[]> {
     return await UsuarioSchema.findAll({
       raw: true
     })
   }
 
-  async listarNomeUsuarioPorId(id: number): Promise<string> {
+  async listarNomeUsuarioPorId (id: number): Promise<string> {
     return await UsuarioSchema.findOne({
       where: {
         id: id
