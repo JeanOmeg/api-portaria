@@ -7,7 +7,7 @@ usuario_rota.get('/', async (req, res) => {
   await listarTodosUsuarios(req, res)
 })
 
-usuario_rota.post('/create', async (req, res) => {
+usuario_rota.post('/cadastro', async (req, res) => {
   await criarUsuario(req, res)
 })
 

@@ -7,6 +7,6 @@ routes.get('/', (_req, res) => {
   res.send('teste')
 })
 
-routes.use('/users', usuario_rota)
+routes.use('/usuario', usuario_rota)
 
 export default routes

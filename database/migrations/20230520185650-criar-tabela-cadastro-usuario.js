@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('usuario', {
+    await queryInterface.createTable('cadastro_usuario', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -15,6 +15,11 @@ module.exports = {
         allowNull: false
       },
       email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
+      login: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true

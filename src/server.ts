@@ -9,9 +9,9 @@ app.use(cors())
 app.use(routes)
 require('dotenv').config()
 
-const PORTA = Number(process.env.PORTA) || 3000
-const URL = process.env.URL
+const porta = Number(process.env.PORTA) || 3000
+const url = process.env.URL
 
-app.listen(PORTA, () => {
-  console.log(`Server rodando em ${URL}${PORTA}`)
+app.listen(porta, () => {
+  console.log(`Server rodando em ${url}${porta}`)
 })

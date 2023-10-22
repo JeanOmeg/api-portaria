@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize'
 import { db_connection } from '../../config/database'
-import { IUsuario } from '../../interfaces/usuario/IUsuario'
+import { ICadastroUsuario } from '../../interfaces/usuario/ICadastroUsuario'
 
-const tabela = 'usuario'
+const tabela = 'cadastro_usuario'
 
-export const UsuarioSchema = db_connection.define<any, IUsuario>(
+export const CadastroUsuarioSchema = db_connection.define<any, ICadastroUsuario>(
   tabela,
   {
     id: {
@@ -18,6 +18,11 @@ export const UsuarioSchema = db_connection.define<any, IUsuario>(
       allowNull: false
     },
     email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    login: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
@@ -55,15 +60,16 @@ export const UsuarioSchema = db_connection.define<any, IUsuario>(
   }
 )
 
-export class UsuarioQuery {
-  schema () {
-    return UsuarioSchema
+export class CadastroUsuarioQuery {
+  schema() {
+    return CadastroUsuarioSchema
   }
 
-  async criarUsuario (dados_criação: IUsuario): Promise<IUsuario[]> {
-    return await UsuarioSchema.create({
+  async criarUsuario(dados_criação: ICadastroUsuario): Promise<ICadastroUsuario> {
+    return await CadastroUsuarioSchema.create({
       nome: dados_criação.nome,
       email: dados_criação.email,
+      login: dados_criação.login,
       senha: dados_criação.senha,
       telefone: dados_criação.telefone,
       endereco: dados_criação.endereco,
@@ -71,8 +77,8 @@ export class UsuarioQuery {
     })
   }
 
-  async listarPorId (id: number): Promise<IUsuario[]> {
-    return await UsuarioSchema.findAll({
+  async listarPorId(id: number): Promise<ICadastroUsuario[]> {
+    return await CadastroUsuarioSchema.findAll({
       where: {
         id: id
       },
@@ -80,18 +86,8 @@ export class UsuarioQuery {
     })
   }
 
-  async listarTodos (): Promise<IUsuario[]> {
-    return await UsuarioSchema.findAll({
-      raw: true
-    })
-  }
-
-  async listarNomeUsuarioPorId (id: number): Promise<string> {
-    return await UsuarioSchema.findOne({
-      where: {
-        id: id
-      },
-      attributes: ['nome'],
+  async listarTodos(): Promise<ICadastroUsuario[]> {
+    return await CadastroUsuarioSchema.findAll({
       raw: true
     })
   }
