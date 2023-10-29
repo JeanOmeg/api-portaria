@@ -6,13 +6,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p .",
-    "dev": "yarn && yarn ts-node-dev --inspect --trace-warnings -r tsconfig-paths/register src/server.ts",
+    "dev": "yarn && yarn eslint . --ext .ts && yarn ts-node-dev --inspect --trace-warnings -r tsconfig-paths/register src/server.ts",
     "db:create": "yarn sequelize db:create",
     "db:migrate": "yarn sequelize db:migrate",
     "db:undo": "yarn sequelize db:migrate:undo",
     "db:undo:all": "yarn sequelize db:migrate:undo:all",
-    "lint": "yarn eslint . --ext .ts",
-    "start": "yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
+    "start": "yarn && yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",

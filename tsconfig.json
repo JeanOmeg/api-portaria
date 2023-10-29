@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig-paths.json",
   "include": [
     "./src/**/*"
   ],
@@ -24,6 +23,30 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": [
+        "src/controllers/*"
+      ],
+      "@enums/*": [
+        "src/enums/*"
+      ],
+      "@interfaces/*": [
+        "src/interfaces/*"
+      ],
+      "@middlewares/*": [
+        "src/middlewares/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@routes/*": [
+        "src/routes/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ]
+    }
   }
 }
