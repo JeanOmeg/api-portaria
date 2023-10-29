@@ -15,6 +15,7 @@
     "space-before-function-paren": "error",
     "no-undef": "off",
     "array-bracket-spacing": "error",
-    "comma-dangle":"error"
+    "comma-dangle":"error",
+    "space-before-blocks": "error"
   }
 }
