@@ -6,14 +6,14 @@ import { usuarioListarTodosService } from '@services/usuario/usuario-listar-todo
 const usuario_query: CadastroUsuarioQuery = new CadastroUsuarioQuery()
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function listarTodosUsuarios(_req: any, res: any): Promise<ICadastroUsuario[]> {
+export async function listarTodosUsuarios (_req: any, res: any): Promise<ICadastroUsuario[]> {
   const resultado = await usuarioListarTodosService(usuario_query)
 
   return res.send(resultado)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function criarUsuario(req: any, res: any) {
+export async function criarUsuario (req: any, res: any) {
   const dados_criação: ICadastroUsuario = req.body
 
   try {

@@ -62,11 +62,11 @@ export const CadastroUsuarioSchema = db_connection.define<any, ICadastroUsuario>
 )
 
 export class CadastroUsuarioQuery {
-  schema() {
+  schema () {
     return CadastroUsuarioSchema
   }
 
-  async criarUsuario(dados_criação: ICadastroUsuario): Promise<ICadastroUsuario> {
+  async criarUsuario (dados_criação: ICadastroUsuario): Promise<ICadastroUsuario> {
     return await CadastroUsuarioSchema.create({
       nome: dados_criação.nome,
       email: dados_criação.email,
@@ -78,7 +78,7 @@ export class CadastroUsuarioQuery {
     })
   }
 
-  async listarPorId(id: number): Promise<ICadastroUsuario[]> {
+  async listarPorId (id: number): Promise<ICadastroUsuario[]> {
     return await CadastroUsuarioSchema.findOne({
       where: {
         id: id
@@ -87,7 +87,7 @@ export class CadastroUsuarioQuery {
     })
   }
 
-  async listarTodos(): Promise<ICadastroUsuario[]> {
+  async listarTodos (): Promise<ICadastroUsuario[]> {
     return await CadastroUsuarioSchema.findAll({
       raw: true
     })
