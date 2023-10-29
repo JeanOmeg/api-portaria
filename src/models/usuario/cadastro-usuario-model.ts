@@ -4,6 +4,7 @@ import { ICadastroUsuario } from '@interfaces/usuario/ICadastroUsuario'
 
 const tabela = 'cadastro_usuario'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CadastroUsuarioSchema = db_connection.define<any, ICadastroUsuario>(
   tabela,
   {

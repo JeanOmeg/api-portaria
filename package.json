@@ -11,6 +11,7 @@
     "db:migrate": "yarn sequelize db:migrate",
     "db:undo": "yarn sequelize db:migrate:undo",
     "db:undo:all": "yarn sequelize db:migrate:undo:all",
+    "lint": "yarn eslint . --ext .ts",
     "start": "yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
@@ -26,6 +27,9 @@
     "@types/cors": "^2.8.14",
     "@types/express": "^4.17.17",
     "@types/sequelize": "^4.28.17",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
     "sequelize-cli": "^6.6.0",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
