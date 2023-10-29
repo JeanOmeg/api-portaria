@@ -10,8 +10,12 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
+    "prefer-promise-reject-errors": "off",
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-explicit-any": "error",
     "space-before-function-paren": "error",
     "no-undef": "off",
     "array-bracket-spacing": "error",

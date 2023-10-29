@@ -1,5 +1,5 @@
 import { CadastroUsuarioQuery } from '@models/usuario/cadastro-usuario-model'
-import { ICadastroUsuario } from '@interfaces/usuario/ICadastroUsuario'
+import { ICadastroUsuario } from '@interfaces/usuario/cadastro-usuario'
 import { criarUsuarioService } from '@services/usuario/usuario-criar-service'
 import { usuarioListarTodosService } from '@services/usuario/usuario-listar-todos-service'
 

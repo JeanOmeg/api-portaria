@@ -1,11 +1,11 @@
 import { DataTypes } from 'sequelize'
-import { db_connection } from '@services/db'
-import { ICadastroUsuario } from '@interfaces/usuario/ICadastroUsuario'
+import { db } from '@services/db'
+import { ICadastroUsuario } from '@interfaces/usuario/cadastro-usuario'
 
 const tabela = 'cadastro_usuario'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const CadastroUsuarioSchema = db_connection.define<any, ICadastroUsuario>(
+export const CadastroUsuarioSchema = db.define<any, ICadastroUsuario>(
   tabela,
   {
     id: {

@@ -1,6 +1,6 @@
 'use strict'
 
-const tabela = 'cadastro_usuario'
+const tabela = 'login_usuario'
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -12,45 +12,25 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      nome: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       email: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
       },
       login: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
-      },
-      senha: {
-        type: Sequelize.STRING,
         allowNull: false
       },
-      telefone: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
-      },
-      endereco: {
-        type: Sequelize.STRING,
+      token: {
+        type: Sequelize.STRING(5000),
         allowNull: false
       },
-      admin: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
+      refresh_token: {
+        type: Sequelize.STRING(5000),
+        allowNull: false
       },
       data_criacao: {
         type: Sequelize.DATE,
         allowNull: false
-      },
-      data_edicao: {
-        type: Sequelize.DATE,
-        allowNull: true
       }
     })
   },
