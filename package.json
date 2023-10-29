@@ -11,7 +11,7 @@
     "db:migrate": "yarn sequelize db:migrate",
     "db:undo": "yarn sequelize db:migrate:undo",
     "db:undo:all": "yarn sequelize db:migrate:undo:all",
-    "start": "yarn db:migrate && ts-node -r tsconfig-paths/register src/server.ts"
+    "start": "yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
