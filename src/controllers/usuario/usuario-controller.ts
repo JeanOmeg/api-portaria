@@ -1,7 +1,7 @@
-import { CadastroUsuarioQuery } from '../../../database/models/usuario/cadastro-usuario-model'
-import { ICadastroUsuario } from '../../interfaces/usuario/ICadastroUsuario'
-import { criarUsuarioService } from '../../services/usuario/usuario-criar-service'
-import { usuarioListarTodosService } from '../../services/usuario/usuario-listar-todos-service'
+import { CadastroUsuarioQuery } from '@models/usuario/cadastro-usuario-model'
+import { ICadastroUsuario } from '@interfaces/usuario/ICadastroUsuario'
+import { criarUsuarioService } from '@services/usuario/usuario-criar-service'
+import { usuarioListarTodosService } from '@services/usuario/usuario-listar-todos-service'
 
 const usuario_query: CadastroUsuarioQuery = new CadastroUsuarioQuery()
 

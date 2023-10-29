@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { criarUsuario, listarTodosUsuarios } from '../controllers/usuario/usuario-controller'
+import { criarUsuario, listarTodosUsuarios } from '@controllers/usuario/usuario-controller'
 
 const usuario_rota = Router()
 

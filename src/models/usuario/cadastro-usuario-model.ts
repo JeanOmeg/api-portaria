@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize'
-import { db_connection } from '../../../database/config/database'
-import { ICadastroUsuario } from '../../interfaces/usuario/ICadastroUsuario'
+import { db_connection } from '@services/db'
+import { ICadastroUsuario } from '@interfaces/usuario/ICadastroUsuario'
 
 const tabela = 'cadastro_usuario'
 
