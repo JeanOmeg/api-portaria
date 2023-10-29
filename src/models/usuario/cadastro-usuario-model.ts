@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize'
-import { db_connection } from '../../config/database'
+import { db_connection } from '../../../database/config/database'
 import { ICadastroUsuario } from '../../interfaces/usuario/ICadastroUsuario'
 
 const tabela = 'cadastro_usuario'
@@ -78,7 +78,7 @@ export class CadastroUsuarioQuery {
   }
 
   async listarPorId(id: number): Promise<ICadastroUsuario[]> {
-    return await CadastroUsuarioSchema.findAll({
+    return await CadastroUsuarioSchema.findOne({
       where: {
         id: id
       },
