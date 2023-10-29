@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "JeanOmeg <jeanomeg3@gmail.com>",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "db:create": "yarn sequelize db:create",

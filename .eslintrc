@@ -16,6 +16,7 @@
     "no-undef": "off",
     "array-bracket-spacing": "error",
     "comma-dangle":"error",
-    "space-before-blocks": "error"
+    "space-before-blocks": "error",
+    "@typescript-eslint/prefer-as-const": "error"
   }
 }
