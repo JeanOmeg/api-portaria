@@ -17,7 +17,6 @@
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
-    "baseUrl": ".",
     "checkJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
