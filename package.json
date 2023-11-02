@@ -15,6 +15,7 @@
     "start": "yarn && yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -25,6 +26,7 @@
     "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.1",
     "@types/cors": "^2.8.14",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.7",
@@ -32,6 +34,7 @@
     "@types/lodash": "^4.14.200",
     "@types/node": "^20.8.10",
     "@types/sequelize": "^4.28.17",
+    "@types/supertest": "^2.0.15",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
