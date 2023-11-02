@@ -17,6 +17,7 @@
     "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-namespace": "off",
     "space-before-function-paren": "error",
     "no-undef": "off",
     "array-bracket-spacing": "error",

@@ -1,11 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
-import { ICadastroUsuario } from '@interfaces/usuario/cadastro-usuario'
+import { IUsuario } from '@interfaces/usuario/usuario-interface'
 
-const tabela = 'cadastro_usuario'
+const tabela = 'usuario'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const CadastroUsuarioModel = db.define<any, ICadastroUsuario>(
+export const UsuarioModel = db.define<any, IUsuario>(
   tabela,
   {
     id: {
@@ -41,18 +41,48 @@ export const CadastroUsuarioModel = db.define<any, ICadastroUsuario>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    admin: {
-      type: DataTypes.BOOLEAN,
+    numero: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    complemento: {
+      type: DataTypes.STRING
+    },
+    bairro: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    cidade: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    estado: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    pais: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    funcao: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: false
+      defaultValue: 'Porteiro'
+    },
+    id_condominio: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'condominio',
+        key: 'id'
+      }
     },
     data_criacao: {
       type: DataTypes.DATE,
       allowNull: false
     },
     data_edicao: {
-      type: DataTypes.DATE,
-      allowNull: true
+      type: DataTypes.DATE
     }
   },
   {

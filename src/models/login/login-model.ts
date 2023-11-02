@@ -1,11 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
-import { ILoginUsuario } from '@interfaces/login/login-usuario'
+import { ILogin } from '@interfaces/login/login-interface'
 
-const tabela = 'login_usuario'
+const tabela = 'login'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const LoginUsuarioModel = db.define<any, ILoginUsuario>(
+export const LoginModel = db.define<any, ILogin>(
   tabela,
   {
     id: {
@@ -14,13 +14,29 @@ export const LoginUsuarioModel = db.define<any, ILoginUsuario>(
       autoIncrement: true,
       allowNull: false
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
+    id_usuario: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'usuario',
+        key: 'id'
+      }
+    },
+    id_condominio: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'condominio',
+        key: 'id'
+      }
     },
     login: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'usuario',
+        key: 'login'
+      }
     },
     token: {
       type: DataTypes.STRING,

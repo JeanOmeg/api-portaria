@@ -1,6 +1,6 @@
-import { ILoginUsuario } from '@interfaces/login/login-usuario'
-import { LoginUsuarioSchema } from '@schemas/login/login-usuario-schema'
+import { ILogin } from '@interfaces/login/login-interface'
+import { LoginSchema } from '@schemas/login/login-schema'
 
-export async function fazerLoginService (usuario_query: LoginUsuarioSchema, dados_login: ILoginUsuario): Promise<ILoginUsuario> {
+export async function fazerLoginService (usuario_query: LoginSchema, dados_login: ILogin): Promise<ILogin> {
   return await usuario_query.logarUsuario(dados_login)
 }

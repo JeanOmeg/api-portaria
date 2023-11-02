@@ -1,0 +1,57 @@
+Project OnPortaria {
+  database_type: 'PostgreSQL'
+  Note: 'Estrutura do banco de dados para usar no Sequelize'
+}
+
+Table usuario  {
+  id integer [pk, increment, not null]
+  nome string [not null]
+  email string [unique, not null]
+  login string [unique, not null]
+  senha string [not null]
+  telefone string [unique, not null]
+  endereco string [not null]
+  numero integer [not null]
+  complemeto string
+  bairro string [not null]
+  cidade string [not null]
+  estado string [not null]
+  pais string [not null]
+  funcao string [default: 'Porteiro', not null]
+  id_condominio integer [not null, ref: > condominio.id]
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table login  {
+  id integer [pk, increment, not null]
+  id_usuario integer [not null, ref: > usuario.id]
+  id_condominio integer [not null, ref: > condominio.id]
+  login string [not null, ref: > usuario.login]
+  token string [not null]
+  refresh_token string [not null]
+  data_criacao date [not null]
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table condominio {
+  id integer [pk, increment, not null]
+  nome string [not null]
+  endereco string [ not null]
+  bloco integer [not null]
+  apartamento integer [not null]
+  sindico string [not null]
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}

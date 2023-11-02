@@ -1,3 +1,8 @@
 {
-  "recommendations": ["dbaeumer.vscode-eslint", "editorconfig.editorconfig"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "nicolas-liger.dbml-viewer",
+    "matt-meyers.vscode-dbml"
+  ]
 }

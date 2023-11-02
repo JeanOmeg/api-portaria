@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import usuario_rota from '@routes/usuario.routes'
-import login_rota from '@routes/login.routes'
+import usuario from '@routes/usuario/usuario.routes'
+import login from '@routes/login/login.routes'
 
 const routes = Router()
 
@@ -8,7 +8,7 @@ routes.get('/', (_req, res) => {
   res.send('teste')
 })
 
-routes.use('/usuario', usuario_rota)
-routes.use('/login', login_rota)
+routes.use('/', usuario)
+routes.use('/', login)
 
 export default routes
