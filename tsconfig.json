@@ -44,9 +44,12 @@
       "@routes/*": [
         "src/routes/*"
       ],
+      "@schemas/*": [
+        "src/schemas/*"
+      ],
       "@services/*": [
         "src/services/*"
-      ]
+      ],
     }
   }
 }

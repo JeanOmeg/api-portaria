@@ -1,8 +1,8 @@
 import { ICadastroUsuario } from '@interfaces/usuario/cadastro-usuario'
-import { CadastroUsuarioQuery } from '@models/usuario/cadastro-usuario-model'
+import { CadastroUsuarioSchema } from '@schemas/usuario/cadastro-usuario-schema'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function salvarUsuarioService (usuario_query: CadastroUsuarioQuery, dados_criação: ICadastroUsuario): Promise<any> {
+export async function salvarUsuarioService (usuario_query: CadastroUsuarioSchema, dados_criação: ICadastroUsuario): Promise<any> {
   if (!dados_criação.nome) {
     throw new Error('Preencha o campo nome corretamente')
   } else if (!dados_criação.email) {
