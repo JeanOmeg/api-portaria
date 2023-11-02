@@ -1,6 +1,8 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
 import { ICadastroUsuario } from '@interfaces/usuario/cadastro-usuario'
+import bcrypt from 'bcrypt'
+require('dotenv').config()
 
 const tabela = 'cadastro_usuario'
 
@@ -66,22 +68,24 @@ export class CadastroUsuarioQuery {
     return CadastroUsuarioSchema
   }
 
-  async criarUsuario (dados_criação: ICadastroUsuario): Promise<ICadastroUsuario> {
+  async salvarUsuario (dados_criação: ICadastroUsuario): Promise<ICadastroUsuario> {
+    const senha = await bcrypt.hash(dados_criação.senha, Number(process.env.SALT))
     return await CadastroUsuarioSchema.create({
       nome: dados_criação.nome,
       email: dados_criação.email,
       login: dados_criação.login,
-      senha: dados_criação.senha,
+      senha: senha,
       telefone: dados_criação.telefone,
       endereco: dados_criação.endereco,
       data_criacao: Date.now()
     })
   }
 
-  async listarPorId (id: number): Promise<ICadastroUsuario[]> {
+  async listarPorEmailELogin (email: string, login: string): Promise<ICadastroUsuario> {
     return await CadastroUsuarioSchema.findOne({
       where: {
-        id: id
+        email: email,
+        login: login
       },
       raw: true
     })

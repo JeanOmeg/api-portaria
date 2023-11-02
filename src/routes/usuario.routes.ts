@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { criarUsuario, listarTodosUsuarios } from '@controllers/usuario/usuario-controller'
+import { salvarUsuario, listarTodosUsuarios } from '@controllers/usuario/cadastro-usuario-controller'
 
 const usuario_rota = Router()
 
@@ -8,7 +8,7 @@ usuario_rota.get('/', async (req, res) => {
 })
 
 usuario_rota.post('/cadastro', async (req, res) => {
-  await criarUsuario(req, res)
+  await salvarUsuario(req, res)
 })
 
 export default usuario_rota
