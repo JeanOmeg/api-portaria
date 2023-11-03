@@ -3,13 +3,55 @@ Project OnPortaria {
   Note: 'Estrutura do banco de dados para usar no Sequelize'
 }
 
-Table usuario  {
+Table tipo_usuario {
   id integer [pk, increment, not null]
+  nome string [not null]
+  role integer [not null, unique]
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table condominio {
+  id integer [pk, increment, not null]
+  nome string [not null]
+  telefone string [not null]
+  endereco string [not null]
+  numero integer [not null]
+  complemeto string
+  bairro string [not null]
+  cidade string [not null]
+  estado string [not null]
+  pais string [not null]
+  tipo string [not null]
+  blocos integer
+  apartamentos integer
+  sindico string
+  contato_sindico string
+  administradora string
+  contato_administradora string
+  seguranca string
+  contato_seguranca string
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table colaborador  {
+  id integer [pk, increment, not null]
+  id_condominio integer [not null, ref: > condominio.id]
+  tipo_usuario integer [default: 0, not null, ref: > tipo_usuario.role]
   nome string [not null]
   email string [unique, not null]
   login string [unique, not null]
   senha string [not null]
-  telefone string [unique, not null]
+  telefone string [not null]
   endereco string [not null]
   numero integer [not null]
   complemeto string
@@ -18,7 +60,77 @@ Table usuario  {
   estado string [not null]
   pais string [not null]
   funcao string [default: 'Porteiro', not null]
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table condomino {
+  id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
+  tipo_usuario integer [default: 1, not null, ref: > tipo_usuario.role]
+  nome string [not null]
+  email string [unique, not null]
+  login string [unique, not null]
+  senha string [not null]
+  apartamento integer [not null]
+  bloco integer [not null]
+  garagem boolean [default: false]
+  vaga integer
+  contato string [not null]
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table visitante {
+  id integer [pk, increment, not null]
+  id_condominio integer [not null, ref: > condominio.id]
+  id_condomino integer [not null, ref: > condomino.id]
+  nome string [not null]
+  documento string [not null]
+  contato string [not null]
+  apartamento integer [not null]
+  bloco integer [not null]
+  data_entrada date [not null]
+  data_saida date
+  observacao string(5000)
+  data_criacao date [not null]
+  data_edicao date
+  Note: '{
+    timestamps: false,
+    freezeTableName: true
+  }'
+}
+
+Table prestador_servico {
+  id integer [pk, increment, not null]
+  id_condominio integer [not null, ref: > condominio.id]
+  id_condomino integer [not null, ref: > condomino.id]
+  nome string [not null]
+  apartamento integer [not null]
+  bloco integer [not null]
+  tipo_servico string [not null]
+  servico string [not null]
+  documento string [not null]
+  nome_empresa string
+  contato string [not null]
+  endereco string [not null]
+  numero integer [not null]
+  complemeto string
+  bairro string [not null]
+  cidade string [not null]
+  estado string [not null]
+  pais string [not null]
+  data_entrada date [not null]
+  data_saida date
+  observacao string(5000)
   data_criacao date [not null]
   data_edicao date
   Note: '{
@@ -29,27 +141,11 @@ Table usuario  {
 
 Table login  {
   id integer [pk, increment, not null]
-  id_usuario integer [not null, ref: > usuario.id]
   id_condominio integer [not null, ref: > condominio.id]
-  login string [not null, ref: > usuario.login]
-  token string [not null]
-  refresh_token string [not null]
+  login string [not null]
+  token string(5000) [not null]
+  refresh_token string(5000) [not null]
   data_criacao date [not null]
-  Note: '{
-    timestamps: false,
-    freezeTableName: true
-  }'
-}
-
-Table condominio {
-  id integer [pk, increment, not null]
-  nome string [not null]
-  endereco string [ not null]
-  bloco integer [not null]
-  apartamento integer [not null]
-  sindico string [not null]
-  data_criacao date [not null]
-  data_edicao date
   Note: '{
     timestamps: false,
     freezeTableName: true

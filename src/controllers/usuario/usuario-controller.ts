@@ -13,7 +13,7 @@ export module UsuarioController {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  export async function salvarUsuario (req: any, res: any) {
+  export async function cadastrarUsuario (req: any, res: any) {
     try {
       const dados_criação: IUsuario = req.body
       const usuario_cadastrado = await salvarUsuarioService(usuario_schema, dados_criação)
