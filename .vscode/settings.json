@@ -19,6 +19,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula",
   "workbench.startupEditor": "none",
+  "workbench.editor.wrapTabs": true,
 
   "terminal.integrated.defaultProfile.windows": "Git Bash",
 
