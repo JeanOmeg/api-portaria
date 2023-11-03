@@ -1,5 +1,5 @@
-import { IColaborador } from '@interfaces/usuario/colaborador-interface'
-import { ColaboradorModel } from '@models/colaborador/colaborador-model'
+import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { ColaboradorModel } from '@model/colaborador/colaborador-model'
 import bcrypt from 'bcrypt'
 require('dotenv').config()
 

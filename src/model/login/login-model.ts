@@ -1,9 +1,8 @@
 import { DataTypes } from 'sequelize'
-import { db } from '@services/db'
-import { ILogin } from '@interfaces/login/login-interface'
-import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
+import { db } from '@util/db'
+import { ILogin } from '@interface/login/login-interface'
+import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const LoginModel = db.define<any, ILogin>(
   lista_tabela_enum[ETabela.login].label,
   {

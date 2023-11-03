@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import colaborador from '@routes/colaborador/colaborador.routes'
-import login from '@routes/login/login.routes'
+import colaborador from '@route/colaborador/colaborador.route'
+import login from '@route/login/login.route'
 
 const routes = Router()
 

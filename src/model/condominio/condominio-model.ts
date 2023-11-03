@@ -1,9 +1,8 @@
 import { DataTypes } from 'sequelize'
-import { db } from '@services/db'
-import { ICondominio } from '@interfaces/condominio/condominio-interface'
-import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
+import { db } from '@util/db'
+import { ICondominio } from '@interface/condominio/condominio-interface'
+import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CondominioModel = db.define<any, ICondominio>(
   lista_tabela_enum[ETabela.condominio].label,
   {

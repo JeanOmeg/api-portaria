@@ -1,9 +1,8 @@
 import { DataTypes } from 'sequelize'
-import { db } from '@services/db'
-import { ITipoUsuario } from '@interfaces/tipo-usuario/tipo-usuario-interface'
-import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
+import { db } from '@util/db'
+import { ITipoUsuario } from '@interface/tipo-usuario/tipo-usuario-interface'
+import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
   lista_tabela_enum[ETabela.tipo_usuario].label,
   {

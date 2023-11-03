@@ -1,5 +1,5 @@
-import { ILogin } from '@interfaces/login/login-interface'
-import { LoginModel } from '@models/login/login-model'
+import { ILogin } from '@interface/login/login-interface'
+import { LoginModel } from '@model/login/login-model'
 
 
 export class LoginSchema {
@@ -9,7 +9,6 @@ export class LoginSchema {
 
   async logarUsuario (dados_criação: ILogin): Promise<ILogin> {
     return await LoginModel.create({
-      id_usuario: dados_criação.id_usuario,
       id_condominio: dados_criação.id_condominio,
       login: dados_criação.login,
       token: dados_criação.token,

@@ -1,7 +1,6 @@
-import { IColaborador } from '@interfaces/usuario/colaborador-interface'
-import { ColaboradorSchema } from '@schemas/colaborador/colaborador-schema'
+import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { ColaboradorSchema } from '@schema/colaborador/colaborador-schema'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function salvarColaboradorService (colaborador_schema: ColaboradorSchema, dados_criação: IColaborador): Promise<IColaborador> {
   if (!dados_criação.nome) {
     throw new Error('Preencha o campo nome corretamente')

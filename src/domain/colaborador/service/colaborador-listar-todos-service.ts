@@ -1,5 +1,5 @@
-import { IColaborador } from '@interfaces/usuario/colaborador-interface'
-import { ColaboradorSchema } from '@schemas/colaborador/colaborador-schema'
+import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { ColaboradorSchema } from '@schema/colaborador/colaborador-schema'
 
 export async function colaboradorListarTodosService (colaborador_schema: ColaboradorSchema): Promise<IColaborador[]> {
   const lista_colaborador =  await colaborador_schema.listarTodos()

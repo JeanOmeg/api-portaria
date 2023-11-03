@@ -5,28 +5,29 @@ const config: Config.InitialOptions = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   collectCoverage: false, // true para gerar o relatório de cobertura
-  coverageDirectory: 'src/tests',
+  coverageDirectory: 'src/test',
   coveragePathIgnorePatterns: [
-    '<rootDir>/src/enums',
-    '<rootDir>/src/interfaces',
-    '<rootDir>/src/middlewares',
-    '<rootDir>/src/schemas',
-    '<rootDir>/src/models'
+    '<rootDir>/src/enum',
+    '<rootDir>/src/interface',
+    '<rootDir>/src/middleware',
+    '<rootDir>/src/schema',
+    '<rootDir>/src/model'
   ],
-  collectCoverageFrom: ['src/**', '!src/interfaces/**', '!src/enums/**', '!src/tests/**'],
+  collectCoverageFrom: ['src/**', '!src/interface/**', '!src/enum/**', '!src/type/**', '!src/test/**'],
   testPathIgnorePatterns : [
     '/node_modules/'
   ],
   moduleNameMapper: {
-    '@controllers/(.*)$': '<rootDir>/src/controllers/$1',
-    '@enums/(.*)$': '<rootDir>/src/enums/$1',
-    '@interfaces/(.*)$': '<rootDir>/src/interfaces/$1',
-    '@middlewares/(.*)$': '<rootDir>/src/middlewares/$1',
-    '@models/(.*)$': '<rootDir>/src/models/$1',
-    '@routes/(.*)$': '<rootDir>/src/routes/$1',
-    '@schemas/(.*)$': '<rootDir>/src/schemas/$1',
-    '@services/(.*)$': '<rootDir>/src/services/$1',
-    '@tests/(.*)$': '<rootDir>/tests/$1'
+    '@domain/(.*)$': '<rootDir>/src/domain/$1',
+    '@enum/(.*)$': '<rootDir>/src/enum/$1',
+    '@interface/(.*)$': '<rootDir>/src/interface/$1',
+    '@middleware/(.*)$': '<rootDir>/src/middleware/$1',
+    '@model/(.*)$': '<rootDir>/src/model/$1',
+    '@route/(.*)$': '<rootDir>/src/route/$1',
+    '@schema/(.*)$': '<rootDir>/src/schema/$1',
+    '@type/(.*)$': '<rootDir>/src/type/$1',
+    '@test/(.*)$': '<rootDir>/test/$1',
+    '@util/(.*)$': '<rootDir>/util/$1'
   }
 }
 

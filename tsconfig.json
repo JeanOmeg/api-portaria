@@ -26,30 +26,36 @@
     "noImplicitAny": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": [
-        "src/controllers/*"
+      "@domain/*": [
+        "src/domain/*"
       ],
-      "@enums/*": [
-        "src/enums/*"
+      "@enum/*": [
+        "src/enum/*"
       ],
-      "@interfaces/*": [
-        "src/interfaces/*"
+      "@interface/*": [
+        "src/interface/*"
       ],
-      "@middlewares/*": [
-        "src/middlewares/*"
+      "@middleware/*": [
+        "src/middleware/*"
       ],
-      "@models/*": [
-        "src/models/*"
+      "@model/*": [
+        "src/model/*"
       ],
-      "@routes/*": [
-        "src/routes/*"
+      "@route/*": [
+        "src/route/*"
       ],
-      "@schemas/*": [
-        "src/schemas/*"
+      "@schema/*": [
+        "src/schema/*"
       ],
-      "@services/*": [
-        "src/services/*"
+      "@type/*": [
+        "src/type/*"
       ],
+      "@test/*": [
+        "src/test/*"
+      ],
+      "@util/*": [
+        "src/util/*"
+      ]
     }
   }
 }

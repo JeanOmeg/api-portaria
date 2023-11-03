@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { ColaboradorController } from '@controllers/colaborador/usuario-controller'
+import { ColaboradorController } from '@domain/colaborador/controller/colaborador-controller'
 
 const colaborador = Router()
 const rota ='colaborador'

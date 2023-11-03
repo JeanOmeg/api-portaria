@@ -1,10 +1,9 @@
 import { DataTypes } from 'sequelize'
-import { db } from '@services/db'
-import { IColaborador } from '@interfaces/usuario/colaborador-interface'
-import { EFuncao, lista_funcao_enum } from '@enums/funcao-enum'
-import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
+import { db } from '@util/db'
+import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { EFuncao, lista_funcao_enum } from '@enum/funcao-enum'
+import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ColaboradorModel = db.define<any, IColaborador>(
   lista_tabela_enum[ETabela.colaborador].label,
   {
