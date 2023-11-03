@@ -1,8 +1,8 @@
-import { IUsuario } from '@interfaces/usuario/usuario-interface'
-import { UsuarioSchema } from '@schemas/usuario/usuario-schema'
+import { IColaborador } from '@interfaces/usuario/colaborador-interface'
+import { ColaboradorSchema } from '@schemas/colaborador/colaborador-schema'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function salvarUsuarioService (usuario_query: UsuarioSchema, dados_criação: IUsuario): Promise<any> {
+export async function salvarColaboradorService (colaborador_schema: ColaboradorSchema, dados_criação: IColaborador): Promise<IColaborador> {
   if (!dados_criação.nome) {
     throw new Error('Preencha o campo nome corretamente')
   } else if (!dados_criação.email) {
@@ -17,10 +17,10 @@ export async function salvarUsuarioService (usuario_query: UsuarioSchema, dados_
     throw new Error('Preencha o campo endereco corretamente')
   }
 
-  const cadastro = await usuario_query.listarPorEmailELogin(dados_criação.email, dados_criação.login)
+  const cadastro = await colaborador_schema.listarPorEmailELogin(dados_criação.email, dados_criação.login)
   if (cadastro) {
     throw new Error('Email ou login já cadastrado')
   }
 
-  return await usuario_query.salvarUsuario(dados_criação)
+  return await colaborador_schema.salvarColaborador(dados_criação)
 }

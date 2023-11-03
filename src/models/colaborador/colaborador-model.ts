@@ -1,11 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
-import { IUsuario } from '@interfaces/usuario/usuario-interface'
+import { IColaborador } from '@interfaces/usuario/colaborador-interface'
 
-const tabela = 'usuario'
+const tabela = 'colaborador'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const UsuarioModel = db.define<any, IUsuario>(
+export const ColaboradorModel = db.define<any, IColaborador>(
   tabela,
   {
     id: {
@@ -13,6 +13,22 @@ export const UsuarioModel = db.define<any, IUsuario>(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false
+    },
+    id_condominio: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'condominio',
+        key: 'id'
+      }
+    },
+    tipo_usuario: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'tipo_usuario',
+        key: 'role'
+      }
     },
     nome: {
       type: DataTypes.STRING,
@@ -29,13 +45,12 @@ export const UsuarioModel = db.define<any, IUsuario>(
       unique: true
     },
     senha: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(500),
       allowNull: false
     },
     telefone: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     },
     endereco: {
       type: DataTypes.STRING,
@@ -68,14 +83,6 @@ export const UsuarioModel = db.define<any, IUsuario>(
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 'Porteiro'
-    },
-    id_condominio: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'condominio',
-        key: 'id'
-      }
     },
     data_criacao: {
       type: DataTypes.DATE,

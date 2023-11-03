@@ -1,5 +1,7 @@
-export interface IUsuario {
+export interface IColaborador {
   id: number
+  id_condominio: number
+  tipo_usuario: number
   nome: string
   email: string
   login: string
@@ -13,7 +15,6 @@ export interface IUsuario {
   estado: string
   pais: string
   funcao: string
-  id_condominio: number
   data_criacao: Date
   data_edicao?: Date
 }
