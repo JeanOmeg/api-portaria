@@ -18,7 +18,7 @@ Table tipo_usuario {
 Table condominio {
   id integer [pk, increment, not null]
   nome string [not null]
-  telefone string [not null]
+  contato_condominio string [not null]
   endereco string [not null]
   numero integer [not null]
   complemeto string

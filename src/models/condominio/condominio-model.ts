@@ -1,10 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
+import { ICondominio } from '@interfaces/condominio/condominio-interface'
 
 const tabela = 'condominio'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const CondominioModel = db.define<any, any>(
+export const CondominioModel = db.define<any, ICondominio>(
   tabela,
   {
     id: {
@@ -17,24 +18,9 @@ export const CondominioModel = db.define<any, any>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    login: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    senha: {
+    contato_condominio: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    telefone: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
     },
     endereco: {
       type: DataTypes.STRING,
@@ -45,14 +31,15 @@ export const CondominioModel = db.define<any, any>(
       allowNull: false
     },
     complemento: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     bairro: {
       type: DataTypes.STRING,
       allowNull: false
     },
     cidade: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     estado: {
@@ -63,18 +50,33 @@ export const CondominioModel = db.define<any, any>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    funcao: {
+    tipo: {
       type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'Porteiro'
+      allowNull: false
     },
-    id_condominio: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'condominio',
-        key: 'id'
-      }
+    blocos: {
+      type: DataTypes.INTEGER
+    },
+    apartamentos: {
+      type: DataTypes.INTEGER
+    },
+    sindico: {
+      type: DataTypes.STRING
+    },
+    contato_sindico: {
+      type: DataTypes.STRING
+    },
+    administradora: {
+      type: DataTypes.STRING
+    },
+    contato_administradora: {
+      type: DataTypes.STRING
+    },
+    seguranca: {
+      type: DataTypes.STRING
+    },
+    contato_seguranca: {
+      type: DataTypes.STRING
     },
     data_criacao: {
       type: DataTypes.DATE,
