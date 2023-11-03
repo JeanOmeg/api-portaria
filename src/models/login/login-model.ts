@@ -1,12 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
 import { ILogin } from '@interfaces/login/login-interface'
-
-const tabela = 'login'
+import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const LoginModel = db.define<any, ILogin>(
-  tabela,
+  lista_tabela_enum[ETabela.login].label,
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,36 +13,24 @@ export const LoginModel = db.define<any, ILogin>(
       autoIncrement: true,
       allowNull: false
     },
-    id_usuario: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'usuario',
-        key: 'id'
-      }
-    },
     id_condominio: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'condominio',
+        model: lista_tabela_enum[ETabela.condominio].label,
         key: 'id'
       }
     },
     login: {
       type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: 'usuario',
-        key: 'login'
-      }
+      allowNull: false
     },
     token: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(5000),
       allowNull: false
     },
     refresh_token: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(5000),
       allowNull: false
     },
     data_criacao: {

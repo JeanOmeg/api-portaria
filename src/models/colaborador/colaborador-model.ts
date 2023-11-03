@@ -2,12 +2,11 @@ import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
 import { IColaborador } from '@interfaces/usuario/colaborador-interface'
 import { EFuncao, lista_funcao_enum } from '@enums/funcao-enum'
-
-const tabela = 'colaborador'
+import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ColaboradorModel = db.define<any, IColaborador>(
-  tabela,
+  lista_tabela_enum[ETabela.colaborador].label,
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,7 +18,7 @@ export const ColaboradorModel = db.define<any, IColaborador>(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'condominio',
+        model: lista_tabela_enum[ETabela.condominio].label,
         key: 'id'
       }
     },
@@ -27,7 +26,7 @@ export const ColaboradorModel = db.define<any, IColaborador>(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'tipo_usuario',
+        model: lista_tabela_enum[ETabela.tipo_usuario].label,
         key: 'role'
       }
     },

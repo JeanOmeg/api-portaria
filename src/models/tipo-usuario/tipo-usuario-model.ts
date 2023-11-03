@@ -1,12 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
 import { ITipoUsuario } from '@interfaces/tipo-usuario/tipo-usuario-interface'
-
-const tabela = 'tipo-usuario'
+import { ETabela, lista_tabela_enum } from '@enums/tabela-enum'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
-  tabela,
+  lista_tabela_enum[ETabela.tipo_usuario].label,
   {
     id: {
       type: DataTypes.INTEGER,
