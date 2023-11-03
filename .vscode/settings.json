@@ -57,8 +57,8 @@
     "*.route.ts": "Routing",
   },
   "material-icon-theme.folders.associations": {
-    "migration": "Queue",
-    "seeder": "Meta",
+    "migrations": "Queue",
+    "seeders": "Meta",
     "dbml": "Database",
     "domain": "Controller",
     "route": "Routes",

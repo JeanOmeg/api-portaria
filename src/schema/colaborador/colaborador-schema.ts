@@ -1,7 +1,8 @@
 import { IColaborador } from '@interface/colaborador/colaborador-interface'
 import { ColaboradorModel } from '@model/colaborador/colaborador-model'
 import bcrypt from 'bcrypt'
-require('dotenv').config()
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 export class ColaboradorSchema {
   schema () {

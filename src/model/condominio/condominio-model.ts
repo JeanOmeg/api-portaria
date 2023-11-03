@@ -3,8 +3,10 @@ import { db } from '@util/db'
 import { ICondominio } from '@interface/condominio/condominio-interface'
 import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
+const tabela = lista_tabela_enum[ETabela.condominio].label
+
 export const CondominioModel = db.define<any, ICondominio>(
-  lista_tabela_enum[ETabela.condominio].label,
+  tabela,
   {
     id: {
       type: DataTypes.INTEGER,

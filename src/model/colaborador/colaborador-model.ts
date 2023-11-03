@@ -4,8 +4,10 @@ import { IColaborador } from '@interface/colaborador/colaborador-interface'
 import { EFuncao, lista_funcao_enum } from '@enum/funcao-enum'
 import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
+const tabela = lista_tabela_enum[ETabela.colaborador].label
+
 export const ColaboradorModel = db.define<any, IColaborador>(
-  lista_tabela_enum[ETabela.colaborador].label,
+  tabela,
   {
     id: {
       type: DataTypes.INTEGER,

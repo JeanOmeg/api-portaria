@@ -1,7 +1,6 @@
-import { Dialect } from 'sequelize'
-import { Sequelize } from 'sequelize-typescript'
-
-require('dotenv').config()
+import { Dialect, Sequelize } from 'sequelize'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 export const db = new Sequelize({
   username: process.env.DB_USERNAME,
