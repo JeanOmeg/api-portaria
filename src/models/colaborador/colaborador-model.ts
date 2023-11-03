@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@services/db'
 import { IColaborador } from '@interfaces/usuario/colaborador-interface'
+import { EFuncao, lista_funcao_enum } from '@enums/funcao-enum'
 
 const tabela = 'colaborador'
 
@@ -82,7 +83,7 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     funcao: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'Porteiro'
+      defaultValue: lista_funcao_enum[EFuncao.porteiro].label
     },
     data_criacao: {
       type: DataTypes.DATE,
