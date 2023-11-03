@@ -31,7 +31,9 @@ export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
     }
   },
   {
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: 'data_criacao',
+    updatedAt: 'data_edicao'
   }
 )

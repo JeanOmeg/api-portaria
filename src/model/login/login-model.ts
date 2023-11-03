@@ -38,7 +38,9 @@ export const LoginModel = db.define<any, ILogin>(
     }
   },
   {
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: 'data_criacao',
+    updatedAt: 'data_edicao'
   }
 )
