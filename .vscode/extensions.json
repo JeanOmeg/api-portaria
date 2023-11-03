@@ -3,6 +3,8 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "nicolas-liger.dbml-viewer",
-    "matt-meyers.vscode-dbml"
+    "matt-meyers.vscode-dbml",
+    "pkief.material-icon-theme",
+    "dracula-theme.theme-dracula"
   ]
 }
