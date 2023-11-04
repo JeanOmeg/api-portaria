@@ -23,6 +23,7 @@ module.exports = {
       id_tipo_usuario: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 1,
         references: {
           model: 'tipo_usuario',
           key: 'id'
