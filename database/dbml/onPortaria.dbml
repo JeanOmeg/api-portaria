@@ -1,6 +1,9 @@
 Project OnPortaria {
   database_type: 'PostgreSQL'
-  Note: 'Estrutura do banco de dados para usar no Sequelize'
+  Note: 'Estrutura do banco de dados para usar no Sequelize',
+  Note: '{
+    freezeTableName: true
+  }'
 }
 
 Table tipo_usuario {
@@ -9,12 +12,6 @@ Table tipo_usuario {
   role string [unique, not null]
   data_criacao date [not null]
   data_edicao date
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao,
-    updatedAt: data_edicao
-  }'
 }
 
 Table condominio {
@@ -39,12 +36,6 @@ Table condominio {
   contato_seguranca string
   data_criacao date [not null]
   data_edicao date
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao,
-    updatedAt: data_edicao
-  }'
 }
 
 Table colaborador  {
@@ -67,12 +58,6 @@ Table colaborador  {
   observacao string(5000)
   data_criacao date [not null]
   data_edicao date
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao,
-    updatedAt: data_edicao
-  }'
 }
 
 Table condomino {
@@ -91,12 +76,6 @@ Table condomino {
   observacao string(5000)
   data_criacao date [not null]
   data_edicao date
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao,
-    updatedAt: data_edicao
-  }'
 }
 
 Table visitante {
@@ -115,12 +94,6 @@ Table visitante {
   observacao string(5000)
   data_criacao date [not null]
   data_edicao date
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao,
-    updatedAt: data_edicao
-  }'
 }
 
 Table prestador_servico {
@@ -148,12 +121,6 @@ Table prestador_servico {
   observacao string(5000)
   data_criacao date [not null]
   data_edicao date
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao,
-    updatedAt: data_edicao
-  }'
 }
 
 Table login  {
@@ -164,9 +131,4 @@ Table login  {
   token string(5000) [not null]
   refresh_token string(5000) [not null]
   data_criacao date [not null]
-  Note: '{
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: data_criacao
-  }'
 }
