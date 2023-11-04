@@ -50,7 +50,7 @@ Table condominio {
 Table colaborador  {
   id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
-  id_tipo_usuario integer [default: 1, not null, ref: > tipo_usuario.id]
+  id_tipo_usuario integer [default: 1, ref: > tipo_usuario.id]
   nome string [not null]
   email string [unique, not null]
   login string [unique, not null]

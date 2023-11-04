@@ -50,4 +50,6 @@ export const LoginModel = db.define<any, ILogin>(
     timestamps: true,
     createdAt: 'data_criacao'
   }
-)
+).addHook('beforeCreate', 'setTimestamps', (instance) => {
+  instance.data_criacao = new Date()
+})

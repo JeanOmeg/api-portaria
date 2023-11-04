@@ -14,7 +14,6 @@ module.exports = {
       },
       id_condominio: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
           model: 'condominio',
           key: 'id'

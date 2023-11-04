@@ -7,31 +7,26 @@ module.exports = {
   async up (queryInterface) {
     const data = [
       {
-        role: 'Controlador',
-        data_criacao: new Date()
+        role: 'Controlador'
       },
       {
-        role: 'Condomino',
-        data_criacao: new Date()
+        role: 'Condomino'
       },
       {
-        role: 'Sindico',
-        data_criacao: new Date()
+        role: 'Sindico'
       },
       {
-        role: 'Administrador',
-        data_criacao: new Date()
+        role: 'Administrador'
       },
       {
-        role: 'SuperAdmin',
-        data_criacao: new Date()
+        role: 'SuperAdmin'
       }
     ]
 
-    await queryInterface.bulkInsert(tabela, data, {})
+    await queryInterface.bulkInsert(tabela, data)
   },
 
   async down (queryInterface) {
-    await queryInterface.bulkDelete(tabela, null, {})
+    await queryInterface.bulkDelete(tabela, null)
   }
 }

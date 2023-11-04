@@ -90,4 +90,9 @@ export const CondominioModel = db.define<any, ICondominio>(
     createdAt: 'data_criacao',
     updatedAt: 'data_edicao'
   }
-)
+).addHook('beforeCreate', 'setTimestamps', (instance) => {
+  instance.data_criacao = new Date()
+}).addHook('beforeUpdate', 'updateTimestamps', (instance) => {
+  instance.updatedAt = new Date()
+})
+

@@ -14,7 +14,6 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     },
     id_condominio: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'condominio',
         key: 'id'
@@ -100,4 +99,8 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     createdAt: 'data_criacao',
     updatedAt: 'data_edicao'
   }
-)
+).addHook('beforeCreate', 'setTimestamps', (instance) => {
+  instance.data_criacao = new Date()
+}).addHook('beforeUpdate', 'updateTimestamps', (instance) => {
+  instance.updatedAt = new Date()
+})
