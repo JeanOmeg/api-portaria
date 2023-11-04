@@ -21,7 +21,7 @@ module.exports = {
         estado: 'string',
         pais: 'string',
         funcao: 'Administrador da Plataforma',
-        data_criação: new Date()
+        data_criacao: new Date()
       }
     ]
 
