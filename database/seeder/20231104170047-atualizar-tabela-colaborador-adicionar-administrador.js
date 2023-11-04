@@ -20,7 +20,8 @@ module.exports = {
         cidade: 'string',
         estado: 'string',
         pais: 'string',
-        funcao: 'Administrador da Plataforma'
+        funcao: 'Administrador da Plataforma',
+        data_criação: new Date()
       }
     ]
 

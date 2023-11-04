@@ -7,19 +7,24 @@ module.exports = {
   async up (queryInterface) {
     const data = [
       {
-        role: 'Controlador'
+        role: 'Controlador',
+        data_criação: new Date()
       },
       {
-        role: 'Condomino'
+        role: 'Condomino',
+        data_criação: new Date()
       },
       {
-        role: 'Sindico'
+        role: 'Sindico',
+        data_criação: new Date()
       },
       {
-        role: 'Administrador'
+        role: 'Administrador',
+        data_criação: new Date()
       },
       {
-        role: 'SuperAdmin'
+        role: 'SuperAdmin',
+        data_criação: new Date()
       }
     ]
 

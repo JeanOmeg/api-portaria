@@ -46,9 +46,7 @@ module.exports = {
       }
     },
     {
-      freezeTableName: true,
-      timestamps: true,
-      createdAt: 'data_criacao'
+      freezeTableName: true
     })
   },
 

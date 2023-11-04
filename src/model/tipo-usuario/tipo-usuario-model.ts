@@ -28,12 +28,6 @@ export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
   },
   {
     freezeTableName: true,
-    timestamps: true,
-    createdAt: 'data_criacao',
-    updatedAt: 'data_edicao'
+    timestamps: false
   }
-).addHook('beforeCreate', 'setTimestamps', (instance) => {
-  instance.data_criacao = new Date()
-}).addHook('beforeUpdate', 'updateTimestamps', (instance) => {
-  instance.updatedAt = new Date()
-})
+)

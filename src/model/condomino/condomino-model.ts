@@ -73,14 +73,6 @@ export const CondominoModel = db.define<any, ICondomino>(
     }
   },
   {
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: 'data_criacao',
-    updatedAt: 'data_edicao'
+    freezeTableName: true
   }
-).addHook('beforeCreate', 'setTimestamps', (instance) => {
-  instance.data_criacao = new Date()
-}).addHook('beforeUpdate', 'updateTimestamps', (instance) => {
-  instance.updatedAt = new Date()
-})
-
+)

@@ -46,10 +46,6 @@ export const LoginModel = db.define<any, ILogin>(
     }
   },
   {
-    freezeTableName: true,
-    timestamps: true,
-    createdAt: 'data_criacao'
+    freezeTableName: true
   }
-).addHook('beforeCreate', 'setTimestamps', (instance) => {
-  instance.data_criacao = new Date()
-})
+)
