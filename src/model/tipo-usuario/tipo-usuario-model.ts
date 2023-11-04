@@ -1,9 +1,8 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
 import { ITipoUsuario } from '@interface/tipo-usuario/tipo-usuario-interface'
-import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
-const tabela = lista_tabela_enum[ETabela.tipo_usuario].label
+const tabela = 'tipo_usuario'
 
 export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
   tabela,

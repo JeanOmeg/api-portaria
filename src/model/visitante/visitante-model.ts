@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
-import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { IVisitante } from '@interface/visitante/visitante-interface'
 
-const tabela = 'colaborador'
+const tabela = 'visitante'
 
-export const ColaboradorModel = db.define<any, IColaborador>(
+export const VisitanteModel = db.define<any, IVisitante>(
   tabela, {
     id: {
       type: DataTypes.INTEGER,
@@ -20,11 +20,11 @@ export const ColaboradorModel = db.define<any, IColaborador>(
         key: 'id'
       }
     },
-    id_tipo_usuario: {
+    id_condomino: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'tipo_usuario',
+        model: 'condomino',
         key: 'id'
       }
     },
@@ -32,55 +32,33 @@ export const ColaboradorModel = db.define<any, IColaborador>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    login: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    senha: {
-      type: DataTypes.STRING(500),
-      allowNull: false
-    },
-    telefone: {
+    documento: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    endereco: {
+    contato: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    numero: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    apartamento: {
+      type: DataTypes.INTEGER
     },
-    complemento: {
+    bloco: {
+      type: DataTypes.INTEGER
+    },
+    garagem: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    vaga: {
       type: DataTypes.STRING
     },
-    bairro: {
-      type: DataTypes.STRING,
+    data_entrada: {
+      type: DataTypes.DATE,
       allowNull: false
     },
-    cidade: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    pais: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    funcao: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'Porteiro'
+    data_saida: {
+      type: DataTypes.DATE
     },
     observacao: {
       type: DataTypes.STRING(5000)

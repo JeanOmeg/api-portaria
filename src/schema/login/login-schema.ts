@@ -1,7 +1,6 @@
 import { ILogin } from '@interface/login/login-interface'
 import { LoginModel } from '@model/login/login-model'
 
-
 export class LoginSchema {
   schema () {
     return LoginModel

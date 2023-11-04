@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
-import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { ICondomino } from '@interface/condomino/condomino-interface'
 
-const tabela = 'colaborador'
+const tabela = 'condomino'
 
-export const ColaboradorModel = db.define<any, IColaborador>(
+export const CondominoModel = db.define<any, ICondomino>(
   tabela, {
     id: {
       type: DataTypes.INTEGER,
@@ -22,7 +22,6 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     },
     id_tipo_usuario: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'tipo_usuario',
         key: 'id'
@@ -34,53 +33,32 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
       unique: true
     },
     login: {
       type: DataTypes.STRING,
-      allowNull: false,
       unique: true
     },
     senha: {
-      type: DataTypes.STRING(500),
-      allowNull: false
+      type: DataTypes.STRING(500)
     },
-    telefone: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    endereco: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    numero: {
+    apartamento: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    complemento: {
+    bloco: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    garagem: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    vaga: {
       type: DataTypes.STRING
     },
-    bairro: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    cidade: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    pais: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    funcao: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'Porteiro'
+    telefone: {
+      type: DataTypes.STRING
     },
     observacao: {
       type: DataTypes.STRING(5000)

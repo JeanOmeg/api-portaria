@@ -52,10 +52,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
-      blocos: {
+      apartamentos: {
         type: DataTypes.INTEGER
       },
-      apartamentos: {
+      blocos: {
         type: DataTypes.INTEGER
       },
       sindico: {

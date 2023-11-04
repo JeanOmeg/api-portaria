@@ -10,8 +10,8 @@ export interface ICondominio {
   estado: string
   pais: string
   tipo: string
-  blocos: number
   apartamentos: number
+  blocos: number
   sindico: string
   contato_sindico: string
   administradora: string

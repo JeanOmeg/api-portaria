@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
-import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { IPrestadorServico } from '@interface/prestador-servico/prestador-servico-interface'
 
-const tabela = 'colaborador'
+const tabela = 'prestador_servico'
 
-export const ColaboradorModel = db.define<any, IColaborador>(
+export const PrestadorServicoModel = db.define<any, IPrestadorServico>(
   tabela, {
     id: {
       type: DataTypes.INTEGER,
@@ -20,11 +20,11 @@ export const ColaboradorModel = db.define<any, IColaborador>(
         key: 'id'
       }
     },
-    id_tipo_usuario: {
+    id_condomino: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'tipo_usuario',
+        model: 'condomino',
         key: 'id'
       }
     },
@@ -32,23 +32,35 @@ export const ColaboradorModel = db.define<any, IColaborador>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    login: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    senha: {
-      type: DataTypes.STRING(500),
-      allowNull: false
-    },
-    telefone: {
+    documento: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    apartamento: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    bloco: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    garagem: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    vaga: {
+      type: DataTypes.STRING
+    },
+    servico: {
+      type: DataTypes.STRING(5000),
+      allowNull: false
+    },
+    empresa: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    contato: {
+      type: DataTypes.STRING
     },
     endereco: {
       type: DataTypes.STRING,
@@ -77,10 +89,13 @@ export const ColaboradorModel = db.define<any, IColaborador>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    funcao: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'Porteiro'
+    data_entrada: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    data_saida: {
+      type: DataTypes.DATE,
+      allowNull: false
     },
     observacao: {
       type: DataTypes.STRING(5000)

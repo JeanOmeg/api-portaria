@@ -82,6 +82,9 @@ module.exports = {
         allowNull: false,
         defaultValue: 'Porteiro'
       },
+      observacao: {
+        type: DataTypes.STRING(5000)
+      },
       data_criacao: {
         type: DataTypes.DATE,
         allowNull: false

@@ -10,8 +10,10 @@ Table tipo_usuario {
   data_criacao date [not null]
   data_edicao date
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao,
+    updatedAt: data_edicao
   }'
 }
 
@@ -38,8 +40,10 @@ Table condominio {
   data_criacao date [not null]
   data_edicao date
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao,
+    updatedAt: data_edicao
   }'
 }
 
@@ -60,32 +64,38 @@ Table colaborador  {
   estado string [not null]
   pais string [not null]
   funcao string [default: 'Porteiro', not null]
+  observacao string(5000)
   data_criacao date [not null]
   data_edicao date
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao,
+    updatedAt: data_edicao
   }'
 }
 
 Table condomino {
   id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
-  id_tipo_usuario integer [default: 1, not null, ref: > tipo_usuario.id]
+  id_tipo_usuario integer [default: 1, ref: > tipo_usuario.id]
   nome string [not null]
-  email string [unique, not null]
-  login string [unique, not null]
-  senha string(500) [not null]
+  email string [unique]
+  login string [unique]
+  senha string(500)
   apartamento integer [not null]
   bloco integer [not null]
   garagem boolean [default: false]
-  vaga integer
-  contato string [not null]
+  vaga string
+  telefone string [not null]
+  observacao string(5000)
   data_criacao date [not null]
   data_edicao date
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao,
+    updatedAt: data_edicao
   }'
 }
 
@@ -96,16 +106,20 @@ Table visitante {
   nome string [not null]
   documento string [not null]
   contato string [not null]
-  apartamento integer [not null]
-  bloco integer [not null]
+  apartamento integer
+  bloco integer
+  garagem boolean [default: false]
+  vaga string
   data_entrada date [not null]
   data_saida date
   observacao string(5000)
   data_criacao date [not null]
   data_edicao date
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao,
+    updatedAt: data_edicao
   }'
 }
 
@@ -114,12 +128,13 @@ Table prestador_servico {
   id_condominio integer [not null, ref: > condominio.id]
   id_condomino integer [not null, ref: > condomino.id]
   nome string [not null]
+  documento string [not null]
   apartamento integer [not null]
   bloco integer [not null]
-  tipo_servico string [not null]
-  servico string [not null]
-  documento string [not null]
-  nome_empresa string
+  garagem boolean [default: false]
+  vaga string
+  servico string(5000) [not null]
+  empresa string [not null]
   contato string [not null]
   endereco string [not null]
   numero integer [not null]
@@ -134,8 +149,10 @@ Table prestador_servico {
   data_criacao date [not null]
   data_edicao date
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao,
+    updatedAt: data_edicao
   }'
 }
 
@@ -147,7 +164,8 @@ Table login  {
   refresh_token string(5000) [not null]
   data_criacao date [not null]
   Note: '{
-    timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: data_criacao
   }'
 }

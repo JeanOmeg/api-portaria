@@ -52,10 +52,10 @@ export const CondominioModel = db.define<any, ICondominio>(
       type: DataTypes.STRING,
       allowNull: false
     },
-    blocos: {
+    apartamentos: {
       type: DataTypes.INTEGER
     },
-    apartamentos: {
+    blocos: {
       type: DataTypes.INTEGER
     },
     sindico: {
