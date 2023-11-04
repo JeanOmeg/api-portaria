@@ -12,13 +12,8 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      nome: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       role: {
         type: DataTypes.STRING,
-        unique: true,
         allowNull: false
       },
       data_criacao: {
@@ -27,7 +22,7 @@ module.exports = {
       },
       data_edicao: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: true
       }
     },
     {

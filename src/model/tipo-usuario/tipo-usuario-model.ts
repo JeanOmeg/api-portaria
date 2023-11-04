@@ -13,10 +13,6 @@ export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
       autoIncrement: true,
       allowNull: false
     },
-    nome: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     role: {
       type: DataTypes.STRING,
       unique: true,
@@ -28,7 +24,7 @@ export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
     },
     data_edicao: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     }
   },
   {
