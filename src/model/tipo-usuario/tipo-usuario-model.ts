@@ -23,8 +23,7 @@ export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
       allowNull: false
     },
     data_edicao: {
-      type: DataTypes.DATE,
-      allowNull: true
+      type: DataTypes.DATE
     }
   },
   {

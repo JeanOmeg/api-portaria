@@ -8,23 +8,19 @@ module.exports = {
     const data = [
       {
         role: 'Controlador',
-        data_criacao: new Date(),
-        data_edicao: new Date()
+        data_criacao: new Date()
       },
       {
         role: 'Condomino',
-        data_criacao: new Date(),
-        data_edicao: new Date()
+        data_criacao: new Date()
       },
       {
         role: 'Sindico',
-        data_criacao: new Date(),
-        data_edicao: new Date()
+        data_criacao: new Date()
       },
       {
         role: 'Administrador',
-        data_criacao: new Date(),
-        data_edicao: new Date()
+        data_criacao: new Date()
       }
     ]
 
