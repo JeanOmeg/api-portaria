@@ -6,7 +6,7 @@ Project OnPortaria {
 Table tipo_usuario {
   id integer [pk, increment, not null]
   nome string [not null]
-  role integer [not null, unique]
+  role string [unique, not null]
   data_criacao date [not null]
   data_edicao date
   Note: '{
@@ -46,7 +46,7 @@ Table condominio {
 Table colaborador  {
   id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
-  tipo_usuario integer [default: 0, not null, ref: > tipo_usuario.role]
+  id_tipo_usuario integer [default: 0, not null, ref: > tipo_usuario.id]
   nome string [not null]
   email string [unique, not null]
   login string [unique, not null]
@@ -71,7 +71,7 @@ Table colaborador  {
 Table condomino {
   id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
-  tipo_usuario integer [default: 1, not null, ref: > tipo_usuario.role]
+  id_tipo_usuario integer [default: 1, not null, ref: > tipo_usuario.id]
   nome string [not null]
   email string [unique, not null]
   login string [unique, not null]

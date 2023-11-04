@@ -1,14 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
 import { IColaborador } from '@interface/colaborador/colaborador-interface'
-import { EFuncao, lista_funcao_enum } from '@enum/funcao-enum'
-import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
 
-const tabela = lista_tabela_enum[ETabela.colaborador].label
+const tabela = 'colaborador'
 
 export const ColaboradorModel = db.define<any, IColaborador>(
-  tabela,
-  {
+  tabela, {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -19,16 +16,16 @@ export const ColaboradorModel = db.define<any, IColaborador>(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: lista_tabela_enum[ETabela.condominio].label,
+        model: 'condominio',
         key: 'id'
       }
     },
-    tipo_usuario: {
+    id_tipo_usuario: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: lista_tabela_enum[ETabela.tipo_usuario].label,
-        key: 'role'
+        model: 'tipo_usuario',
+        key: 'id'
       }
     },
     nome: {
@@ -83,7 +80,7 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     funcao: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: lista_funcao_enum[EFuncao.porteiro].label
+      defaultValue: 'Porteiro'
     },
     data_criacao: {
       type: DataTypes.DATE,

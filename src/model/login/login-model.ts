@@ -1,11 +1,11 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
 import { ILogin } from '@interface/login/login-interface'
-import { ETabela, lista_tabela_enum } from '@enum/tabela-enum'
+
+const tabela = 'login'
 
 export const LoginModel = db.define<any, ILogin>(
-  lista_tabela_enum[ETabela.login].label,
-  {
+  tabela, {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -16,7 +16,7 @@ export const LoginModel = db.define<any, ILogin>(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: lista_tabela_enum[ETabela.condominio].label,
+        model: 'condominio',
         key: 'id'
       }
     },

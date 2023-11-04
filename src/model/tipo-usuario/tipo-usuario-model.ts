@@ -19,7 +19,7 @@ export const TipoUsuarioModel = db.define<any, ITipoUsuario>(
       allowNull: false
     },
     role: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       unique: true,
       allowNull: false
     },
