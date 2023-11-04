@@ -21,6 +21,10 @@ module.exports = {
       {
         role: 'Administrador',
         data_criacao: new Date()
+      },
+      {
+        role: 'SuperAdmin',
+        data_criacao: new Date()
       }
     ]
 
