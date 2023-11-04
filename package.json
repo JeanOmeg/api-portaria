@@ -15,7 +15,7 @@
     "db:sd": "yarn sequelize seed:create --name ",
     "build": "tsc -p .",
     "dev": "yarn && yarn eslint . --ext .ts && yarn ts-node-dev --inspect --trace-warnings -r tsconfig-paths/register src/server.ts",
-    "start": "yarn && yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
+    "start": "yarn && yarn db:migrate && yarn db:migrate && yarn ts-node -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
