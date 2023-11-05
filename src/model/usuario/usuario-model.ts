@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize'
 import { db } from '@util/db'
-import { ICondomino } from '@interface/condomino/condomino-interface'
+import { IUsuario } from '@interface/usuario/usuario-interface'
 
-const tabela = 'condomino'
+const tabela = 'usuario'
 
-export const CondominoModel = db.define<any, ICondomino>(
+export const UsuarioModel = db.define<any, IUsuario>(
   tabela, {
     id: {
       type: DataTypes.INTEGER,
@@ -14,7 +14,6 @@ export const CondominoModel = db.define<any, ICondomino>(
     },
     id_condominio: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'condominio',
         key: 'id'
@@ -22,7 +21,8 @@ export const CondominoModel = db.define<any, ICondomino>(
     },
     id_tipo_usuario: {
       type: DataTypes.INTEGER,
-      defaultValue: 2,
+      allowNull: false,
+      defaultValue: 1,
       references: {
         model: 'tipo_usuario',
         key: 'id'
@@ -34,31 +34,63 @@ export const CondominoModel = db.define<any, ICondomino>(
     },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
       unique: true
     },
     login: {
       type: DataTypes.STRING,
+      allowNull: false,
       unique: true
     },
     senha: {
-      type: DataTypes.STRING(500)
+      type: DataTypes.STRING(500),
+      allowNull: false
+    },
+    telefone: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    endereco: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    numero: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    complemento: {
+      type: DataTypes.STRING
+    },
+    bairro: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    cidade: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    estado: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    pais: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    funcao: {
+      type: DataTypes.STRING
     },
     apartamento: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
     bloco: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
     garagem: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     vaga: {
-      type: DataTypes.STRING
-    },
-    telefone: {
       type: DataTypes.STRING
     },
     observacao: {

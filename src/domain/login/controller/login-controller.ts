@@ -1,13 +1,13 @@
 import { ILogin } from '@interface/login/login-interface'
 import * as dotenv from 'dotenv'
 import { LoginSchema } from '@schema/login/login-schema'
-import { ColaboradorSchema } from '@schema/colaborador/colaborador-schema'
+import { UsuarioSchema } from '@schema/usuario/usuario-schema'
 import { fazerLoginService } from '@domain/login/service/fazer-login-service'
 dotenv.config()
 
 export module LoginController {
   const login_schema = new LoginSchema()
-  const colaborador_schema = new ColaboradorSchema()
+  const colaborador_schema = new UsuarioSchema()
 
 
   export async function fazerLogin (req: any, res: any): Promise<ILogin> {

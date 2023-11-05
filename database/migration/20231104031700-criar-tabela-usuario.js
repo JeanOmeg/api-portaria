@@ -1,6 +1,6 @@
 'use strict'
 const DataTypes = require('sequelize/lib/data-types')
-const tabela = 'condomino'
+const tabela = 'usuario'
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -14,7 +14,6 @@ module.exports = {
       },
       id_condominio: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
           model: 'condominio',
           key: 'id'
@@ -22,7 +21,8 @@ module.exports = {
       },
       id_tipo_usuario: {
         type: DataTypes.INTEGER,
-        defaultValue: 2,
+        allowNull: false,
+        defaultValue: 1,
         references: {
           model: 'tipo_usuario',
           key: 'id'
@@ -34,31 +34,50 @@ module.exports = {
       },
       email: {
         type: DataTypes.STRING,
+        allowNull: false,
         unique: true
       },
       login: {
         type: DataTypes.STRING,
+        allowNull: false,
         unique: true
       },
       senha: {
-        type: DataTypes.STRING(500)
-      },
-      apartamento: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(500),
         allowNull: false
-      },
-      bloco: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      garagem: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-      },
-      vaga: {
-        type: DataTypes.STRING
       },
       telefone: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      endereco: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      numero: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      complemento: {
+        type: DataTypes.STRING
+      },
+      bairro: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      cidade: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      estado: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      pais: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      funcao: {
         type: DataTypes.STRING
       },
       observacao: {

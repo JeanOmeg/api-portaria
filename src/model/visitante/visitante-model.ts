@@ -20,11 +20,11 @@ export const VisitanteModel = db.define<any, IVisitante>(
         key: 'id'
       }
     },
-    id_condomino: {
+    id_usuario: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'condomino',
+        model: 'usuario',
         key: 'id'
       }
     },

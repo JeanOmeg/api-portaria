@@ -1,5 +1,5 @@
 'use strict'
-const { hashSenhasPadraoJs } = require('../../src/util/hash-senhas-padrao-js')
+const { hashSenhasPadraoJs } = require('../util/hash-senhas-padrao-js')
 const tabela = 'colaborador'
 
 /** @type {import('sequelize-cli').Migration} */

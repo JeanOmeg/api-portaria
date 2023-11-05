@@ -1,11 +1,11 @@
-import { IColaborador } from '@interface/colaborador/colaborador-interface'
+import { IUsuario } from '@interface/usuario/usuario-interface'
 import { ILogin } from '@interface/login/login-interface'
 import { IUsuarioLogado } from '@interface/login/usuario-logado-interface'
 import * as dotenv from 'dotenv'
 import { sign } from 'jsonwebtoken'
 dotenv.config()
 
-export async function criarPayloadService (usuario: IColaborador) {
+export async function criarPayloadService (usuario: IUsuario) {
 
   const payload: IUsuarioLogado = {
     id_usuario: usuario.id,

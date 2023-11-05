@@ -1,7 +1,7 @@
 export interface IVisitante {
   id: number
   id_condominio: number
-  id_condomino: string
+  id_usuario: string
   nome: string
   documento: string
   contato: string

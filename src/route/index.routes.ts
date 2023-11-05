@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import colaborador from '@route/colaborador/colaborador.route'
+import usuario from '@route/usuario/usuario.route'
 import login from '@route/login/login.route'
 
 const routes = Router()
@@ -8,7 +8,7 @@ routes.get('/', (_req, res) => {
   res.send('teste')
 })
 
-routes.use('/', colaborador)
+routes.use('/', usuario)
 routes.use('/login', login)
 
 export default routes

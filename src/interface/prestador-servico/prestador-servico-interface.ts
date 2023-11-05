@@ -1,7 +1,7 @@
 export interface IPrestadorServico {
   id: number
   id_condominio: number
-  id_condomino: number
+  id_usuario: number
   nome: string
   documento: string
   apartamento: number

@@ -1,4 +1,4 @@
-export interface IColaborador {
+export interface IUsuario {
   id: number
   id_condominio: number
   id_tipo_usuario: number
@@ -15,6 +15,10 @@ export interface IColaborador {
   estado: string
   pais: string
   funcao: string
+  apartamento: number
+  bloco: number
+  garagem: boolean
+  vaga: string
   observacao: string
   data_criacao: Date
   data_edicao?: Date

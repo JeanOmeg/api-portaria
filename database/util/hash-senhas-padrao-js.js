@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 const bcrypt = require('bcrypt')
 require('dotenv').config()
 

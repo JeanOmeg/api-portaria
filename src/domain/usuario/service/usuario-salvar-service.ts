@@ -1,7 +1,7 @@
-import { IColaborador } from '@interface/colaborador/colaborador-interface'
-import { ColaboradorSchema } from '@schema/colaborador/colaborador-schema'
+import { IUsuario } from '@interface/usuario/usuario-interface'
+import { UsuarioSchema } from '@schema/usuario/usuario-schema'
 
-export async function salvarColaboradorService (colaborador_schema: ColaboradorSchema, dados_criação: IColaborador): Promise<IColaborador> {
+export async function usuarioSalvarService (usuario_schema: UsuarioSchema, dados_criação: IUsuario): Promise<IUsuario> {
   if (!dados_criação.nome) {
     throw new Error('Preencha o campo nome corretamente')
   } else if (!dados_criação.email) {
@@ -16,10 +16,10 @@ export async function salvarColaboradorService (colaborador_schema: ColaboradorS
     throw new Error('Preencha o campo endereco corretamente')
   }
 
-  const cadastro = await colaborador_schema.listarPorEmailELogin(dados_criação.email, dados_criação.login)
+  const cadastro = await usuario_schema.listarPorEmailELogin(dados_criação.email, dados_criação.login)
   if (cadastro) {
     throw new Error('Email ou login já cadastrado')
   }
 
-  return await colaborador_schema.salvarColaborador(dados_criação)
+  return await usuario_schema.salvarColaborador(dados_criação)
 }
