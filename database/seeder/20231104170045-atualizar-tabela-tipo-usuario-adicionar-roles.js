@@ -1,6 +1,7 @@
 'use strict'
 
 const tabela = 'tipo_usuario'
+let tipo_usuario_id = []
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -28,10 +29,13 @@ module.exports = {
       }
     ]
 
-    await queryInterface.bulkInsert(tabela, data)
+    const tipo_usuario = await queryInterface.bulkInsert(tabela, data)
+    tipo_usuario_id = tipo_usuario.map(tipo => tipo.id)
   },
 
   async down (queryInterface) {
-    await queryInterface.bulkDelete(tabela, null)
+    if (createdRecordIds.length > 0) {
+      await queryInterface.bulkDelete(tabela, { id: tipo_usuario_id })
+    }
   }
 }

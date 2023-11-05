@@ -2,13 +2,14 @@
 require('dotenv').config()
 
 const tabela = 'colaborador'
+let superadmin_id // Variável para armazenar o ID do registro criado
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface) {
     const data = [
       {
-        id_tipo_usuario: 1,
+        id_tipo_usuario: 5,
         nome: 'SuperAdmin',
         email: 'superadmin@onportaria.com',
         login: 'SuperAdmin',
@@ -25,10 +26,13 @@ module.exports = {
       }
     ]
 
-    await queryInterface.bulkInsert(tabela, data)
+    const [superadmin] = await queryInterface.bulkInsert(tabela, data)
+    superadmin_id = superadmin.id
   },
 
   async down (queryInterface) {
-    await queryInterface.bulkDelete(tabela, null)
+    if (createdRecordId) {
+      await queryInterface.bulkDelete(tabela, { id: superadmin_id })
+    }
   }
 }
