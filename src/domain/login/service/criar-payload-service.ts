@@ -25,7 +25,8 @@ export async function criarPayloadService (usuario: IUsuario) {
 
   const login: ILogin = {
     id_condominio: usuario.id_condominio,
-    id_tipo_usuario:usuario.id_tipo_usuario,
+    id_usuario: usuario.id,
+    id_tipo_usuario: usuario.id_tipo_usuario,
     login: usuario.login,
     token: token,
     refresh_token: refreshToken,
