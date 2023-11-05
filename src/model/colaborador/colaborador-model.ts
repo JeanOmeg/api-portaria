@@ -94,6 +94,7 @@ export const ColaboradorModel = db.define<any, IColaborador>(
     }
   },
   {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   }
 )

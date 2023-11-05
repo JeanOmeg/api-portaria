@@ -2,7 +2,8 @@ Project OnPortaria {
   database_type: 'PostgreSQL'
   Note: 'Estrutura do banco de dados para usar no Sequelize',
   Note: '{
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   }'
 }
 

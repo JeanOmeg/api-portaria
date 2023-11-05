@@ -109,6 +109,7 @@ export const PrestadorServicoModel = db.define<any, IPrestadorServico>(
     }
   },
   {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   }
 )

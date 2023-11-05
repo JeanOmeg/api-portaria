@@ -1,6 +1,6 @@
 'use strict'
 const DataTypes = require('sequelize/lib/data-types')
-const tabela = 'tipo_usuario'
+const tabela = 'login'
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -14,7 +14,6 @@ module.exports = {
       },
       id_condominio: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
           model: 'condominio',
           key: 'id'
@@ -46,7 +45,8 @@ module.exports = {
       }
     },
     {
-      freezeTableName: true
+      freezeTableName: true,
+      timestamps: false
     })
   },
 

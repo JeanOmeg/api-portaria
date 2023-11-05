@@ -14,7 +14,6 @@ export const LoginModel = db.define<any, ILogin>(
     },
     id_condominio: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'condominio',
         key: 'id'
@@ -46,6 +45,7 @@ export const LoginModel = db.define<any, ILogin>(
     }
   },
   {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   }
 )

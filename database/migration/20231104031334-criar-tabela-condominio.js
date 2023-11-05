@@ -85,7 +85,8 @@ module.exports = {
       }
     },
     {
-      freezeTableName: true
+      freezeTableName: true,
+      timestamps: false
     })
   },
 

@@ -1,7 +1,7 @@
 export interface IColaborador {
   id: number
   id_condominio: number
-  id_tipo_usuario: string
+  id_tipo_usuario: number
   nome: string
   email: string
   login: string

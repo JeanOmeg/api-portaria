@@ -73,6 +73,7 @@ export const CondominoModel = db.define<any, ICondomino>(
     }
   },
   {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   }
 )

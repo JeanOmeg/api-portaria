@@ -72,6 +72,7 @@ export const VisitanteModel = db.define<any, IVisitante>(
     }
   },
   {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   }
 )

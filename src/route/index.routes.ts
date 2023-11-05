@@ -9,6 +9,6 @@ routes.get('/', (_req, res) => {
 })
 
 routes.use('/', colaborador)
-routes.use('/', login)
+routes.use('/login', login)
 
 export default routes

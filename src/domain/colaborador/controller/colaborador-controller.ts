@@ -21,4 +21,3 @@ export module ColaboradorController {
     }
   }
 }
-

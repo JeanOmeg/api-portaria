@@ -32,6 +32,13 @@ export class ColaboradorSchema {
     })
   }
 
+  async listarColaboradorPorLogin (login: string): Promise<IColaborador> {
+    return await ColaboradorModel.findOne({
+      where: { login: login },
+      raw: true
+    })
+  }
+
   async listarTodos (): Promise<IColaborador[]> {
     return await ColaboradorModel.findAll({
       raw: true

@@ -12,7 +12,7 @@ module.exports = {
           nome: 'SuperAdmin',
           email: 'superadmin@onportaria.com',
           login: 'SuperAdmin',
-          senha: (await hashSenhasPadraoJs()).senha_padrao_superadmin,
+          senha: await hashSenhasPadraoJs(),
           telefone: 'telefone',
           endereco: 'endereco',
           numero: 123,
