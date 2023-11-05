@@ -23,6 +23,7 @@ export async function criarPayloadService (usuario: IUsuario) {
     expiresIn: Number(process.env.TIME_REFRESH_TOKEN)
   })
 
+
   const login: ILogin = {
     id_condominio: usuario.id_condominio,
     id_usuario: usuario.id,

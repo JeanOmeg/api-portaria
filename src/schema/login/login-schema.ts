@@ -10,7 +10,7 @@ export class LoginSchema {
     return await LoginModel.create({
       id_condominio: login.id_condominio,
       id_tipo_usuario: login.id_tipo_usuario,
-      id_usuario: login.id,
+      id_usuario: login.id_usuario,
       login: login.login,
       token: login.token,
       refresh_token: login.refresh_token,
