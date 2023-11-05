@@ -29,8 +29,7 @@ export const CondominioModel = db.define<any, ICondominio>(
       allowNull: false
     },
     complemento: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     bairro: {
       type: DataTypes.STRING,
@@ -50,7 +49,8 @@ export const CondominioModel = db.define<any, ICondominio>(
     },
     tipo: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 'Residencial'
     },
     apartamentos: {
       type: DataTypes.INTEGER
@@ -75,6 +75,9 @@ export const CondominioModel = db.define<any, ICondominio>(
     },
     contato_seguranca: {
       type: DataTypes.STRING
+    },
+    observacao: {
+      type: DataTypes.STRING(5000)
     },
     data_criacao: {
       type: DataTypes.DATE,

@@ -19,6 +19,14 @@ export const LoginModel = db.define<any, ILogin>(
         key: 'id'
       }
     },
+    id_usuario: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'usuario',
+        key: 'id'
+      }
+    },
     id_tipo_usuario: {
       type: DataTypes.INTEGER,
       allowNull: false,

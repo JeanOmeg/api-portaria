@@ -80,6 +80,19 @@ module.exports = {
       funcao: {
         type: DataTypes.STRING
       },
+      apartamento: {
+        type: DataTypes.INTEGER
+      },
+      bloco: {
+        type: DataTypes.INTEGER
+      },
+      garagem: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      },
+      vaga: {
+        type: DataTypes.STRING
+      },
       observacao: {
         type: DataTypes.STRING(5000)
       },

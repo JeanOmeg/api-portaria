@@ -1,7 +1,8 @@
 Project OnPortaria {
   database_type: 'PostgreSQL'
-  Note: 'Estrutura do banco de dados para usar no Sequelize',
-  Note: '{
+  Note: 'Estrutura do banco de dados para usar no Sequelize'
+  Note: 'Todas as tabelas possuem essas opções:
+  {
     freezeTableName: true,
     timestamps: false
   }'
@@ -9,7 +10,6 @@ Project OnPortaria {
 
 Table tipo_usuario {
   id integer [pk, increment, not null]
-  nome string [not null]
   role string [unique, not null]
   data_criacao date [not null]
   data_edicao date
@@ -26,22 +26,23 @@ Table condominio {
   cidade string [not null]
   estado string [not null]
   pais string [not null]
-  tipo string [not null]
-  blocos integer
+  tipo string [not null, default: 'Residencial']
   apartamentos integer
+  blocos integer
   sindico string
   contato_sindico string
   administradora string
   contato_administradora string
   seguranca string
   contato_seguranca string
+  observacao string (5000)
   data_criacao date [not null]
   data_edicao date
 }
 
-Table colaborador  {
+Table usuario  {
   id integer [pk, increment, not null]
-  id_condominio integer [not null, ref: > condominio.id]
+  id_condominio integer [ref: > condominio.id]
   id_tipo_usuario integer [default: 1, ref: > tipo_usuario.id]
   nome string [not null]
   email string [unique, not null]
@@ -55,25 +56,11 @@ Table colaborador  {
   cidade string [not null]
   estado string [not null]
   pais string [not null]
-  funcao string [default: 'Porteiro', not null]
-  observacao string(5000)
-  data_criacao date [not null]
-  data_edicao date
-}
-
-Table condomino {
-  id integer [pk, increment, not null]
-  id_condominio integer [not null, ref: > condominio.id]
-  id_tipo_usuario integer [default: 2, ref: > tipo_usuario.id]
-  nome string [not null]
-  email string [unique]
-  login string [unique]
-  senha string(500)
-  apartamento integer [not null]
-  bloco integer [not null]
+  funcao string [not null]
+  apartamento string
+  bloco string
   garagem boolean [default: false]
   vaga string
-  telefone string [not null]
   observacao string(5000)
   data_criacao date [not null]
   data_edicao date
@@ -82,7 +69,7 @@ Table condomino {
 Table visitante {
   id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
-  id_condomino integer [not null, ref: > condomino.id]
+  id_usuario integer [not null, ref: > usuario.id]
   nome string [not null]
   documento string [not null]
   contato string [not null]
@@ -100,7 +87,7 @@ Table visitante {
 Table prestador_servico {
   id integer [pk, increment, not null]
   id_condominio integer [not null, ref: > condominio.id]
-  id_condomino integer [not null, ref: > condomino.id]
+  id_usuario integer [not null, ref: > usuario.id]
   nome string [not null]
   documento string [not null]
   apartamento integer [not null]
@@ -126,7 +113,8 @@ Table prestador_servico {
 
 Table login  {
   id integer [pk, increment, not null]
-  id_condominio integer [not null, ref: > condominio.id]
+  id_condominio integer [ref: > condominio.id]
+  id_usuario integer [not null, ref: > usuario.id]
   id_tipo_usuario integer [not null, ref: > tipo_usuario.id]
   login string [not null]
   token string(5000) [not null]

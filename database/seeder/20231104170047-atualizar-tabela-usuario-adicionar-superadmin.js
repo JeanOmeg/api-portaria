@@ -1,6 +1,6 @@
 'use strict'
 const { hashSenhasPadraoJs } = require('../util/hash-senhas-padrao-js')
-const tabela = 'colaborador'
+const tabela = 'usuario'
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -16,11 +16,12 @@ module.exports = {
           telefone: 'telefone',
           endereco: 'endereco',
           numero: 123,
-          bairro: 'string',
-          cidade: 'string',
-          estado: 'string',
-          pais: 'string',
+          bairro: 'bairro',
+          cidade: 'cidade',
+          estado: 'estado',
+          pais: 'pais',
           funcao: 'Administrador da Plataforma',
+          observacao: 'Usuario administrador da plataforma, responsavel por criar condominios e usuarios',
           data_criacao: new Date()
         }
       ]

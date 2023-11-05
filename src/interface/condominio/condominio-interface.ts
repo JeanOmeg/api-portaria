@@ -18,6 +18,7 @@ export interface ICondominio {
   contato_administradora: string
   seguranca: string
   contato_seguranca: string
+  observacao: string
   data_criacao: Date
   data_edicao: Date
 }
