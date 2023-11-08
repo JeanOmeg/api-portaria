@@ -1,9 +1,13 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json" // Caminho para o seu arquivo tsconfig.json
+  },
   "plugins": [
     "@typescript-eslint"
   ],
+  "ignorePatterns": ["jest.config.ts", "database/**/*"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -13,12 +17,14 @@
     "prefer-promise-reject-errors": "off",
     "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "never"],
-    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-namespace": "off",
     "space-before-function-paren": "error",
+    "object-curly-spacing": ["error", "always"],
+    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
     "no-undef": "off",
     "array-bracket-spacing": "error",
     "comma-dangle":"error",

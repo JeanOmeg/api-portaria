@@ -7,5 +7,5 @@ export interface ILogin {
   senha?: string
   token: string
   refresh_token: string
-  data_criacao: Date
+  data_criacao?: Date
 }

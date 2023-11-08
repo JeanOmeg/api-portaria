@@ -1,11 +1,8 @@
-import * as dotenv from 'dotenv'
 import * as bcrypt from 'bcrypt'
 import { ILogin } from '@interface/login/login-interface'
 import { UsuarioSchema } from '@schema/usuario/usuario-schema'
 import { LoginSchema } from '@schema/login/login-schema'
 import { criarPayloadService } from './criar-payload-service'
-
-dotenv.config()
 
 export async function fazerLoginService (login_schema: LoginSchema, colaborador_schema: UsuarioSchema, dados_login: ILogin): Promise<ILogin> {
 
