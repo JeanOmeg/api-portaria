@@ -2,8 +2,6 @@
 
 const tabela = 'tipo_usuario'
 
-let roles = []
-
 const lista_roles = [
   {
     role: 'Controlador',
@@ -26,10 +24,6 @@ const lista_roles = [
     data_criacao: new Date()
   }
 ]
-
-for (const role of lista_roles) {
-  roles.push(role.role)
-}
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

@@ -1,7 +1,7 @@
 export interface IUsuario {
-  id: number
-  id_condominio: number
-  id_tipo_usuario: number
+  id: string
+  id_condominio?: string
+  id_tipo_usuario: string
   nome: string
   email: string
   login: string

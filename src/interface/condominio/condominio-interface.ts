@@ -1,5 +1,5 @@
 export interface ICondominio {
-  id: number
+  id: string
   nome: string
   contato_condominio: string
   endereco: string

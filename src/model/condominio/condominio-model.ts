@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes, Sequelize } from 'sequelize'
 import { db } from '@util/db'
 import { ICondominio } from '@interface/condominio/condominio-interface'
 
@@ -7,10 +7,11 @@ const tabela = 'condominio'
 export const CondominioModel = db.define<any, ICondominio>(
   tabela, {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
+      unique: true,
+      allowNull: false,
+      defaultValue: Sequelize.literal('uuid_generate_v4()')
     },
     nome: {
       type: DataTypes.STRING,

@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes, Sequelize } from 'sequelize'
 import { db } from '@util/db'
 import { ILogin } from '@interface/login/login-interface'
 
@@ -7,20 +7,21 @@ const tabela = 'login'
 export const LoginModel = db.define<any, ILogin>(
   tabela, {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
+      unique: true,
+      allowNull: false,
+      defaultValue: Sequelize.literal('uuid_generate_v4()')
     },
     id_condominio: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       references: {
         model: 'condominio',
         key: 'id'
       }
     },
     id_usuario: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'usuario',
@@ -28,7 +29,7 @@ export const LoginModel = db.define<any, ILogin>(
       }
     },
     id_tipo_usuario: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'tipo_usuario',

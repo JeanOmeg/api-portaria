@@ -5,10 +5,16 @@ const tabela = 'usuario'
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface) {
+    const id_superadmin = (await queryInterface.select(null, 'tipo_usuario', {
+      where: {
+        role: 'SuperAdmin'
+      }
+    }))[0].id
+
     const seedData = async () => {
       const data = [
         {
-          id_tipo_usuario: 5,
+          id_tipo_usuario: id_superadmin,
           nome: 'SuperAdmin',
           email: 'superadmin@onportaria.com',
           login: 'SuperAdmin',

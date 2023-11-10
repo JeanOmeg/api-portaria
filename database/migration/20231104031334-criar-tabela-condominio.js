@@ -4,13 +4,14 @@ const tabela = 'condominio'
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface) {
+  async up (queryInterface, Sequelize) {
     await queryInterface.createTable(tabela, {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
+        unique: true,
+        allowNull: false,
+        defaultValue: Sequelize.literal('uuid_generate_v4()')
       },
       nome: {
         type: DataTypes.STRING,

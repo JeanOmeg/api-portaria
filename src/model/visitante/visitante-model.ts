@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes, Sequelize } from 'sequelize'
 import { db } from '@util/db'
 import { IVisitante } from '@interface/visitante/visitante-interface'
 
@@ -7,13 +7,14 @@ const tabela = 'visitante'
 export const VisitanteModel = db.define<any, IVisitante>(
   tabela, {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
+      unique: true,
+      allowNull: false,
+      defaultValue: Sequelize.literal('uuid_generate_v4()')
     },
     id_condominio: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'condominio',
@@ -21,7 +22,7 @@ export const VisitanteModel = db.define<any, IVisitante>(
       }
     },
     id_usuario: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'usuario',
