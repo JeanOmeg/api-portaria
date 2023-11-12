@@ -4,11 +4,9 @@ import login from '@route/login/login.route'
 
 const routes = Router()
 
-routes.get('/', (_req, res) => {
-  res.send('teste')
-})
+routes.get('/', (_req, res) => { res.send('teste') })
 
-routes.use('/', usuario)
-routes.use('/login', login)
+routes.use(login)
+routes.use(usuario)
 
 export default routes
