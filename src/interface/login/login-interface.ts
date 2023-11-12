@@ -1,6 +1,6 @@
 export interface ILogin {
   id?: string
-  id_condominio: string
+  id_condominio?: string
   id_tipo_usuario: string
   id_usuario: string
   login: string
