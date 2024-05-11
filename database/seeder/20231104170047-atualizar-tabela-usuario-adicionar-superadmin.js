@@ -11,7 +11,7 @@ module.exports = {
       }
     }))[0].id
 
-    const seedData = async () => {
+    async function seedData () {
       const data = [
         {
           id_tipo_usuario: id_superadmin,

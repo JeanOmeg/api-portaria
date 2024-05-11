@@ -35,7 +35,7 @@ Table condominio {
   contato_administradora string
   seguranca string
   contato_seguranca string
-  observacao string (5000)
+  observacao string(5000)
   data_criacao date [not null]
   data_edicao date
 }

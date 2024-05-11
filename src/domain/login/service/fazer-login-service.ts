@@ -4,9 +4,9 @@ import { UsuarioSchema } from '@schema/usuario/usuario-schema'
 import { LoginSchema } from '@schema/login/login-schema'
 import { criarPayloadService } from './criar-payload-service'
 
-export async function fazerLoginService (login_schema: LoginSchema, colaborador_schema: UsuarioSchema, dados_login: ILogin): Promise<ILogin> {
+export async function fazerLoginService (login_schema: LoginSchema, usuario_schema: UsuarioSchema, dados_login: ILogin): Promise<ILogin> {
 
-  const usuario = await colaborador_schema.listarColaboradorPorLogin(dados_login.login)
+  const usuario = await usuario_schema.listarColaboradorPorLogin(dados_login.login)
   if (!usuario) {
     throw new Error('Erro')
   }

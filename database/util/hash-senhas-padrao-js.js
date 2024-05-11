@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 require('dotenv').config()
 
 async function hashSenhasPadraoJs () {
-  const crypt = process.env.BCRYPT
+  const crypt = process.env.SENHA_BCRYPT
   const salt = Number(process.env.SALT)
   let senha_padrao
   if (crypt && salt) {

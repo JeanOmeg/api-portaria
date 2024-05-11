@@ -10,7 +10,7 @@ export async function criarPayloadService (usuario: IUsuario) {
   const payload: IUsuarioLogado = {
     id_usuario: usuario.id,
     id_tipo_usuario: usuario.id_tipo_usuario,
-    id_condominio: usuario.id_condominio,
+    id_condominio: usuario.id_condominio as string,
     nome: usuario.nome,
     login: usuario.login
   }
